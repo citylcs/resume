@@ -67,7 +67,10 @@ body{
   width: 200px;
   height: 45px;
   font-size: 20px;
-  font-weight: 700;
+  text-decoration: none;
+  line-height: 45px;
+  text-align: center;
+  font-weight: 800;
   background-color: #c93c67;
   color: #fff;
   border-radius: 5px;
@@ -219,7 +222,6 @@ p{
     .dot{
       width: 12px;
       height: 12px;
-      background-color: #333;
       border-radius: 50%;
       position: absolute;
       bottom: 16px;
@@ -234,28 +236,58 @@ p{
 
     }
   }
-  li:first-child{
-    .dot{
-      background-color: #e34c26;
-    }
-  }
-  li:nth-child(2){
-    .dot{
-      background-color: #f1e054;
-    }
-  }
-  li:nth-child(3){
-    .dot{
-      background-color: #563d7c;
-    }
-  }
-  li:nth-child(4){
-    .dot{
-      background-color: #f1e054;
-    }
-  }
 }
 
 .last_title{
   color: #21b080 !important;
+}
+
+@media screen and (max-width: 720px){
+  #midContent{
+    width: 100%;
+  }
+  li{
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 500px){
+  .target_dote,.target_border,.target_dote2,.target_border2,.target_border3,.target_dote3{
+    display: none;
+  }
+  h3{
+    margin-left: 70px;
+    margin-right: 20px;
+  }
+  ul{
+    border: none;
+
+  }
+  div{
+    p{
+      border:none;
+    }
+  }
+
+  .third_ul{
+    position: relative;
+    top: 20px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 438px){
+  .download_button{
+    font-size: 14px;
+    width: 70px;
+  }
+  .third_ul{
+    li{
+      width: 80%;
+    }
+  }
+  .menu_content{
+    padding: 0;
+    li{
+      width: 20px;
+    }
+  }
 }

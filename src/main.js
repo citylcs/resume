@@ -21,11 +21,6 @@ class OverviewTitle extends React.Component {
                 return <h2 className="bigTitle" key={index}>{item.overTitle}</h2>;
             }
         });
-        let href = this.props.items.map((item) => {
-            if (item.downloadHref ) {
-                return item.downloadHref;
-            }
-        });
         let download = this.props.items.map((item) => {
             if (item.downloadName) {
                 return item.downloadName;
@@ -34,10 +29,10 @@ class OverviewTitle extends React.Component {
         return (
             <div className="overview_top">
                 {overTitle}
-                <button href={href}
+                <a href="https://github.com/citylcs/resume"
                         className="download_button" >
                     {download}
-                </button>
+                </a>
             </div>
         )
     }
@@ -326,7 +321,7 @@ class ProjectList extends React.Component {
                         <a href={item.url}>{item.list}</a>
                         <p className="pro_des" key={index}>{item.description}</p>
                         <div className="li_type">
-                            <div className="dot"> </div>
+                            <div className="dot" style={{backgroundColor: item.light}}> </div>
                             <p key={index}>{item.type}</p>
                         </div>
                     </li>
@@ -408,10 +403,10 @@ const JS = [
 
 const PROJECT = [
     {title: 'Project'},
-    {list: 'Victor-series-page' ,description: '网络加速服务类主页', type: 'HTML', url: 'https://github.com/citylcs/Victor-series-page'},
-    {list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', url: 'https://github.com/citylcs/toDoList'},
-    {list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', url: 'https://github.com/citylcs/Calculation'},
-    {list: 'React-TODO', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', url: 'https://github.com/citylcs/React-TODO'},
+    {list: 'Victor-series-page' ,description: '网络加速服务类主页', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page'},
+    {list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList'},
+    {list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation'},
+    {list: 'React-TODO', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO'},
 ];
 
 function Resume(){

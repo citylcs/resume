@@ -9818,8 +9818,8 @@ var OverviewTitle = function (_React$Component) {
                 { className: 'overview_top' },
                 overTitle,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'button',
-                    { href: href,
+                    'a',
+                    { href: 'https://github.com/citylcs/resume',
                         className: 'download_button' },
                     download
                 )
@@ -10513,7 +10513,7 @@ var ProjectList = function (_React$Component23) {
                             { className: 'li_type' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'dot' },
+                                { className: 'dot', style: { backgroundColor: item.light } },
                                 ' '
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -10578,7 +10578,7 @@ var CSS = [{ name: 'CSS' }, { description: 'CSS3' }, { description: 'transform' 
 
 var JS = [{ name: 'JavaScript' }, { description: 'jQuery' }, { description: 'React' }, { description: 'ES6' }, { description: 'DOM' }, { list: 'JavaScript基础牢固，熟悉DOM、event、ajax，能够编写出基本的JavaScript原生代码' }, { list: '熟悉ES6语法，个人项目中已全面使用ES6进行开发' }, { list: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { list: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { list: '熟练使用Git版本控制工具' }, { list: '熟练使用Gulp、webpack等前端自动化构建工具' }, { list: '熟练使用chrome developer tools调试工具来调试代码' }, { list: '熟练使用intellij idea、Sublime Text3等编辑器进行前端页面手工式的开发' }, { list: '熟练使用Google、Stack Overflow等网站解决问题' }];
 
-var PROJECT = [{ title: 'Project' }, { list: 'Victor-series-page', description: '网络加速服务类主页', type: 'HTML', url: 'https://github.com/citylcs/Victor-series-page' }, { list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', url: 'https://github.com/citylcs/toDoList' }, { list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', url: 'https://github.com/citylcs/Calculation' }, { list: 'React-TODO', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', url: 'https://github.com/citylcs/React-TODO' }];
+var PROJECT = [{ title: 'Project' }, { list: 'Victor-series-page', description: '网络加速服务类主页', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page' }, { list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList' }, { list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation' }, { list: 'React-TODO', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO' }];
 
 function Resume() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
