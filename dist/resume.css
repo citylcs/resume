@@ -32,6 +32,7 @@ body {
 .menu a {
   text-decoration: none;
   color: #fff;
+
 }
 
 .menu a:visited {
@@ -50,6 +51,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   color: #fff;
+    cursor: pointer;
 }
 
 .menu li:last-child {
@@ -83,6 +85,10 @@ body {
   position: absolute;
   top: 20px;
   right: 40px;
+}
+
+.download_button:hover {
+    background-color: #f75973;
 }
 
 .overview_content {
