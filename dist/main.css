@@ -1,0 +1,171 @@
+@font-face {
+  font-family: "SS Pro";
+  src: url("../fonts/SourceSansPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PingFang SC";
+  src: url("../fonts/PingFang Regular.ttf");
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: #b8335c;
+}
+
+a:visited, a:link, a:active {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu {
+  height: 67px;
+  background-color: #c63c67;
+}
+
+.menu i {
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  transition: transform 500ms;
+  display: none;
+}
+
+.menu .down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.menu_content {
+  float: right;
+  margin: 0;
+}
+
+.menu_content li {
+  float: left;
+  list-style: none;
+  font-size: 20px;
+  line-height: 67px;
+  font-family: "SS Pro",sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.menu_content li:first-child {
+  color: #21b080;
+}
+
+.menu_content a:hover {
+  color: #21b080;
+}
+
+.menu_content a {
+  cursor: pointer;
+}
+
+#photoWrap {
+  width: 230px;
+  margin: 80px auto 0 auto;
+}
+
+#photoWrap #photo {
+  max-width: 230px;
+  height: 230px;
+  border-radius: 50%;
+}
+
+#wellComeWrap {
+  position: relative;
+  top: 0;
+  text-align: center;
+  font: 25px 'PingFang SC';
+  color: #fff;
+}
+
+.bigWrap {
+  width: 100%;
+  height: 100px;
+}
+
+.bigWrap #iconWrap {
+  width: 160px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.bigWrap #iconWrap #icon1, .bigWrap #iconWrap #icon2 {
+  float: left;
+  font-size: 30px;
+  color: #fff;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.bigWrap #iconWrap #icon2:hover {
+  color: #333;
+}
+
+.bigWrap #iconWrap a:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+.hidden {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: #c63c67;
+  text-align: center;
+  font: 20px/21px "SS Pro";
+  color: #f2f2f2;
+  box-shadow: 1px 1px 8px #333 inset;
+  transition: height 500ms;
+}
+
+.unHidden {
+  height: 67px;
+}
+
+@media screen and (max-width: 450px) {
+  .menu {
+    transition: height 500ms;
+  }
+  .menu .menu_content {
+    width: 100%;
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    transition: height 500ms;
+  }
+  .menu .menu_content li {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .menu .open {
+    height: 134px;
+  }
+  .menu .icon-chevron-down {
+    display: block;
+  }
+  .show {
+    height: 134px;
+  }
+  #wellCome {
+    font-size: 35px;
+  }
+}

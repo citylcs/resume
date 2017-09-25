@@ -18,33 +18,33 @@ class TopBar extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            touchBar: false,
-            slideDown: false,
+            isHidden: false,
         }
     }
 
     handleClick() {
         this.setState(prevState => ({
-            touchBar: !prevState.touchBar,
-            slideDown: !prevState.slideDown,
+            isHidden: !prevState.isHidden,
         }));
     }
 
     render() {
-        // let iconClass = this.state.touchBar ?
-        //     <i className="icon-chevron-up"/> :
-        //     <i className="icon-chevron-down"/>;
-
         return (
-            <div className="menu">
-                <ul className="menu_content">
-                    <li>Me</li>
-                    <li><a href="./resume.html">Resume</a></li>
-                 </ul>
+            <div className={this.state.isHidden ?
+                'menu show' : 'menu'}>
+                {
+                    this.state.isHidden ?
+                        <ul className="menu_content open">
+                            <li>Me</li>
+                            <li><a href="./resume.html">Resume</a></li>
+                        </ul> :
+                        <ul className="menu_content">
+                            <li>Me</li>
+                            <li><a href="./resume.html">Resume</a></li>
+                        </ul>
+                }
                 <div onClick={this.handleClick}>
-                    {
-                        this.state.touchBar ? <i className="icon-chevron-up"/> : <i className="icon-chevron-down"/>
-                    }
+                    <i className={this.state.isHidden ? 'icon-chevron-down down' : 'icon-chevron-down'} />
                 </div>
             </div>
         )
@@ -75,18 +75,39 @@ class WellCome extends React.Component {
     }
 }
 
-function Icon() {
-    return (
-        <div id="iconWrap">
-            <div id="icon1"><i className="icon-github icon-large" /></div>
-            <div id="icon2"><i className="icon-envelope icon-large" /></div>
-        </div>
-    )
+class Icon extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {isHidden: true}
+    }
+
+    handleClick() {
+        this.setState(prevState => ({
+            isHidden: !prevState.isHidden
+        }));
+    }
+
+    render() {
+        return (
+            <div className="bigWrap">
+                <div id="iconWrap">
+                    <div id="icon1"><a href="https://github.com/citylcs"><i className="icon-github icon-large" /></a></div>
+                    <div id="icon2"><i className="icon-envelope icon-large" onClick={this.handleClick} /></div>
+                </div>
+                <div className={this.state.isHidden ? 'hidden' : 'hidden unHidden'}>
+                    <div className="hiddenWrap">
+                        <h3>citylcs@gmail.com</h3>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
 const ITEMS = [
     {wellCome: '你好，我是林楚城！'},
-    {imgSrc: 'src/img/icon.png'}
+    {imgSrc: 'img/icon.png'}
 ];
 
 class Me extends React.Component {

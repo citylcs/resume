@@ -9776,8 +9776,7 @@ var TopBar = function (_React$Component) {
 
         _this.handleClick = _this.handleClick.bind(_this);
         _this.state = {
-            touchBar: false,
-            slideDown: false
+            isHidden: false
         };
         return _this;
     }
@@ -9787,22 +9786,34 @@ var TopBar = function (_React$Component) {
         value: function handleClick() {
             this.setState(function (prevState) {
                 return {
-                    touchBar: !prevState.touchBar,
-                    slideDown: !prevState.slideDown
+                    isHidden: !prevState.isHidden
                 };
             });
         }
     }, {
         key: 'render',
         value: function render() {
-            // let iconClass = this.state.touchBar ?
-            //     <i className="icon-chevron-up"/> :
-            //     <i className="icon-chevron-down"/>;
-
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'menu' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                { className: this.state.isHidden ? 'menu show' : 'menu' },
+                this.state.isHidden ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'ul',
+                    { className: 'menu_content open' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        null,
+                        'Me'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: './resume.html' },
+                            'Resume'
+                        )
+                    )
+                ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'ul',
                     { className: 'menu_content' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -9823,7 +9834,7 @@ var TopBar = function (_React$Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { onClick: this.handleClick },
-                    this.state.touchBar ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-chevron-up' }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-chevron-down' })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: this.state.isHidden ? 'icon-chevron-down down' : 'icon-chevron-down' })
                 )
             );
         }
@@ -9888,27 +9899,76 @@ var WellCome = function (_React$Component3) {
     return WellCome;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-function Icon() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { id: 'iconWrap' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'icon1' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-github icon-large' })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { id: 'icon2' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-envelope icon-large' })
-        )
-    );
-}
+var Icon = function (_React$Component4) {
+    _inherits(Icon, _React$Component4);
 
-var ITEMS = [{ wellCome: '你好，我是林楚城！' }, { imgSrc: 'src/img/icon.png' }];
+    function Icon(props) {
+        _classCallCheck(this, Icon);
 
-var Me = function (_React$Component4) {
-    _inherits(Me, _React$Component4);
+        var _this4 = _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
+
+        _this4.handleClick = _this4.handleClick.bind(_this4);
+        _this4.state = { isHidden: true };
+        return _this4;
+    }
+
+    _createClass(Icon, [{
+        key: 'handleClick',
+        value: function handleClick() {
+            this.setState(function (prevState) {
+                return {
+                    isHidden: !prevState.isHidden
+                };
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'bigWrap' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { id: 'iconWrap' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { id: 'icon1' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: 'https://github.com/citylcs' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-github icon-large' })
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { id: 'icon2' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-envelope icon-large', onClick: this.handleClick })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: this.state.isHidden ? 'hidden' : 'hidden unHidden' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'hiddenWrap' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'h3',
+                            null,
+                            'citylcs@gmail.com'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Icon;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+var ITEMS = [{ wellCome: '你好，我是林楚城！' }, { imgSrc: 'img/icon.png' }];
+
+var Me = function (_React$Component5) {
+    _inherits(Me, _React$Component5);
 
     function Me() {
         _classCallCheck(this, Me);
