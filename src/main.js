@@ -1,17 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import QueueAnim from 'rc-queue-anim'
 // import './sass/style.scss'
 
 
-function TopBar() {
-    return (
-        <div className="menu">
-            <ul className="menu_content">
-                <li><a href="index.html">Me</a></li>
-                <li>Resume</li>
-            </ul>
-        </div>
-    )
+class TopBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            isHidden: false,
+        }
+    }
+
+    handleClick() {
+        this.setState(prevState => ({
+            isHidden: !prevState.isHidden,
+        }));
+    }
+
+    render() {
+        return (
+            <div className={this.state.isHidden ?
+                'menu show' : 'menu'}>
+                {
+                    this.state.isHidden ?
+                        <ul className="menu_content open">
+                            <li><a href="index.html">Me</a></li>
+                            <li>Resume</li>
+                        </ul> :
+                        <ul className="menu_content">
+                            <li><a href="index.html">Me</a></li>
+                            <li>Resume</li>
+                        </ul>
+                }
+                <div onClick={this.handleClick}>
+                    <i className={this.state.isHidden ? 'icon-chevron-down down' : 'icon-chevron-down'} />
+                </div>
+            </div>
+        )
+    }
 }
 
 class OverviewTitle extends React.Component {
@@ -413,13 +441,22 @@ function Resume(){
     return (
         <div>
             <TopBar />
-            <div id="midContent">
-                <Overview items={ITEMS} />
-                <Experience exp={EXP} />
-                <HTML html={HTML1} />
-                <Css css={CSS} />
-                <Js js={JS} />
-                <Project project={PROJECT} />
+            <div className="midContent">
+                <QueueAnim duration={3000} delay={1500} animConfig={[
+                    { opacity: [1, 0], translateY: [0, 50] },
+                    { opacity: [1, 0], translateY: [0, -50] }
+                ]}>
+                    {
+                        [
+                            <div key="1"><Overview items={ITEMS} /></div>,
+                            <div key="2"><Experience exp={EXP} /></div>,
+                            <div key="3"><HTML html={HTML1} /></div>,
+                            <div key="4"><Css css={CSS} /></div>,
+                            <div key="5"><Js js={JS} /></div>,
+                            <div key="6"><Project project={PROJECT} /></div>,
+                        ]
+                    }
+                </QueueAnim>
             </div>
         </div>
     )

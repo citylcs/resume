@@ -32,7 +32,6 @@ body {
 .menu a {
   text-decoration: none;
   color: #fff;
-
 }
 
 .menu a:visited {
@@ -51,7 +50,6 @@ body {
   font-size: 20px;
   font-weight: 700;
   color: #fff;
-    cursor: pointer;
 }
 
 .menu li:last-child {
@@ -67,6 +65,24 @@ body {
   float: right;
   margin: 0;
   border: none;
+}
+
+.menu i {
+  font-size: 30px;
+  color: #fff;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  transition: transform 500ms;
+  display: none;
+}
+
+.menu .down {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .download_button {
@@ -85,10 +101,6 @@ body {
   position: absolute;
   top: 20px;
   right: 40px;
-}
-
-.download_button:hover {
-    background-color: #f75973;
 }
 
 .overview_content {
@@ -152,7 +164,7 @@ p {
   margin: 0 0 0 33px;
 }
 
-#midContent {
+.midContent {
   width: 700px;
   margin: 0 auto;
 }
@@ -273,6 +285,32 @@ p {
   }
   li {
     padding-right: 20px;
+  }
+  .menu {
+    transition: height 500ms;
+  }
+  .menu .menu_content {
+    width: 100%;
+    flex-direction: column;
+    height: 0;
+    overflow: hidden;
+    transition: height 500ms;
+  }
+  .menu .menu_content li {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  .menu .open {
+    height: 134px;
+  }
+  .menu .icon-chevron-down {
+    display: block;
+  }
+  .show {
+    height: 134px;
   }
 }
 
