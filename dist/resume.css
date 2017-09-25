@@ -280,7 +280,7 @@ p {
 }
 
 @media screen and (max-width: 720px) {
-  #midContent {
+  .midContent {
     width: 100%;
   }
   li {
@@ -301,7 +301,6 @@ p {
     display: block;
     width: 100%;
     text-align: center;
-    margin: 0;
   }
   .menu .open {
     height: 134px;
