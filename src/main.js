@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import QueueAnim from 'rc-queue-anim'
-// import './sass/style.scss'
-
 
 class TopBar extends React.Component {
     constructor(props) {

@@ -1,17 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import './scss/style.scss'
-
-// function TopBar() {
-//     return (
-//         <div className="menu">
-//             <ul className="menu_content">
-//                 <li>Me</li>
-//                 <li><a href="./resume.html">Resume</a></li>
-//             </ul>
-//         </div>
-//     )
-// }
+import QueueAnim from 'rc-queue-anim'
 
 class TopBar extends React.Component {
     constructor(props) {
@@ -116,9 +105,14 @@ class Me extends React.Component {
             <div>
                 <TopBar />
                 <div id="midContent">
-                    <Photo items={this.props.items} />
-                    <WellCome items={this.props.items} />
-                    <Icon />
+                    <QueueAnim duration={2000} delay={1000} animConfig={[
+                        { opacity: [1, 0], translateY: [0, 50] },
+                        { opacity: [1, 0], translateY: [0, -50] }
+                    ]}>
+                        <div key="1"><Photo items={this.props.items} /></div>
+                        <div key="2"><WellCome items={this.props.items} /></div>
+                        <div key="3"><Icon /></div>
+                    </QueueAnim>
                 </div>
             </div>
         )
