@@ -114,11 +114,11 @@ a {
   cursor: pointer;
 }
 
-.bigWrap #iconWrap #icon2:hover {
+.bigWrap #iconWrap #icon2:active {
   color: #333;
 }
 
-.bigWrap #iconWrap a:hover {
+.bigWrap #iconWrap a:active {
   color: #333;
   cursor: pointer;
 }
