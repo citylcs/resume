@@ -12650,7 +12650,11 @@ var Icon = function (_React$Component4) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'h3',
                             null,
-                            'citylcs@gmail.com'
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'a',
+                                { href: 'mailto:citylcs@gmail.com' },
+                                'citylcs@gmail.com'
+                            )
                         )
                     )
                 )

@@ -140,6 +140,9 @@ a {
 }
 
 @media screen and (max-width: 450px) {
+  #photoWrap{
+    margin-top: 25px;
+  }
   .menu {
     transition: height 500ms;
   }
