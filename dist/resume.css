@@ -178,7 +178,7 @@ p {
   margin: 0;
 }
 
-.target_border, .target_border2, .target_border3 {
+.target_border, .target_border2, .target_border3, .target_border4, .target_border5{
   width: 40px;
   height: 40px;
   border: 15px solid #fff;
@@ -189,7 +189,7 @@ p {
   top: 28px;
 }
 
-.target_dote, .target_dote2, .target_dote3 {
+.target_dote, .target_dote2, .target_dote3, .target_dote4, .target_dote5 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -212,6 +212,14 @@ p {
 }
 
 .target_border3, .target_dote3 {
+  background-color: #4267b2;
+}
+
+.target_border4, .target_dote4 {
+  background-color: #d12c2c;
+}
+
+.target_border5, .target_dote5 {
   background-color: #21b080;
 }
 
@@ -238,6 +246,14 @@ p {
   padding: 16px;
   position: relative;
   margin: 0 0 16px 0;
+}
+
+.third_ul li a {
+  text-decoration: none;
+}
+
+.third_ul li a:hover {
+  text-decoration: underline;
 }
 
 .third_ul li a:visited {
@@ -314,8 +330,71 @@ p {
   }
 }
 
+#skillOverTitle {
+  color: #12416b;
+}
+
+span {
+  font-family: "PingFang SC", sans-serif;
+  font-weight: 800;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  color: #fff;
+  line-height: 25px;
+  background-color: #12416b;
+  height: 25px;
+  display: inline-block;
+}
+
+#overWrap {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.frameworks{
+  color: #4267b2 !important;
+  padding-bottom: 0;
+}
+
+.frameworksDes{
+  border-color: #4267b2;
+}
+
+#learningTitle{
+  padding-bottom: 0;
+  color: #d12c2c;
+}
+
+.leaningExperience{
+  border-color: #d12c2c;
+}
+
+.learningDes1, .learningDes2, #time1, #time2{
+  border: none;
+  margin-left: 0;
+}
+
+#time1, #time2{
+  padding-left: 0;
+}
+
+#time2{
+  margin-top: 20px;
+}
+
+.learningDes1, .learningDes2{
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 664px) {
+  #overWrap {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 500px) {
-  .target_dote, .target_border, .target_dote2, .target_border2, .target_border3, .target_dote3 {
+  .target_dote, .target_border, .target_dote2, .target_border2, .target_border3, .target_dote3, .target_border4, .target_dote4 {
     display: none;
   }
   h3 {
