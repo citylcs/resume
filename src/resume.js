@@ -402,6 +402,26 @@ class LearningExperience extends React.Component {
                 return <li key={index}>{item.description2}</li>
             }
         });
+        let rows = [];
+        this.props.learningExperience.forEach((item, index) => {
+            if (item.homework) {
+                return (
+                    rows.push(
+                        <li id="hm_name" key={index}>
+                            <p id="des">网易云课堂作业</p>
+                            <div id="hm_wrap">
+                                <a id="hm_url" href={item.url}>{item.homework}</a>
+                                <p id="hm_des" key={index}>{item.description}</p>
+                                <div id="hm_type">
+                                    <div id="hm_dot" style={{backgroundColor: item.light}} />
+                                    <p id="hm_last" key={index}>{item.type}</p>
+                                </div>
+                            </div>
+                        </li>
+                    )
+                )
+            }
+        });
         return (
             <div id="learningExperience">
                 {title}
@@ -417,6 +437,7 @@ class LearningExperience extends React.Component {
                         {learningTime2}
                         <ul className="learningDes2">{learningDes2}</ul>
                     </li>
+                    {rows}
                 </ul>
             </div>
         )
@@ -561,15 +582,46 @@ const LEARNING = [
     {description2: 'DOM编程艺术'},
     {description2: '页面架构'},
     {description2: '产品前端架构'},
+    {homework: 'netEasyFrontEndHomework' ,description: '网易云课堂前端为专业作业及考试', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework'},
 ];
 
 const PROJECT = [
     {title: 'Project'},
-    {list: 'Victor-series-page' ,description: '网络加速服务类主页', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page'},
-    {list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList'},
-    {list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation'},
-    {list: 'React Demo', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO'},
-    {list: 'resume', description: 'React + SASS + Gulp + Webpack开发的个人简历', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/resume'},
+    {
+        list: 'Victor-series-page',
+        description: '网络加速服务类主页',
+        type: 'HTML',
+        light: '#e34c26',
+        url: 'https://github.com/citylcs/Victor-series-page',
+    },
+    {
+        list: 'toDoList',
+        description: '原生JavaScript开发的todolist应用',
+        type: 'JavaScript',
+        light: '#f1e054',
+        url: 'https://github.com/citylcs/toDoList',
+    },
+    {
+        list: 'Calculation',
+        description: '一个简单的、原生JavaScript制作的计算器',
+        type: 'CSS',
+        light: '#563d7c',
+        url: 'https://github.com/citylcs/Calculation',
+    },
+    {
+        list: 'React Demo',
+        description: 'React.js框架下开发的带过滤功能的todolist应用',
+        type: 'JavaScript',
+        light: '#f1e054',
+        url: 'https://github.com/citylcs/React-TODO',
+    },
+    {
+        list: 'resume',
+        description: 'React + SASS + Gulp + Webpack开发的个人简历',
+        type: 'JavaScript',
+        light: '#f1e054',
+        url: 'https://github.com/citylcs/resume',
+    },
 ];
 
 function Resume(){

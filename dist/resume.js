@@ -12461,8 +12461,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import './sass/style.scss'
-
 
 var TopBar = function (_React$Component) {
     _inherits(TopBar, _React$Component);
@@ -12799,8 +12797,54 @@ var Experience = function (_React$Component9) {
     return Experience;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var SkillsTitle = function (_React$Component10) {
-    _inherits(SkillsTitle, _React$Component10);
+var SkillOverview = function (_React$Component10) {
+    _inherits(SkillOverview, _React$Component10);
+
+    function SkillOverview() {
+        _classCallCheck(this, SkillOverview);
+
+        return _possibleConstructorReturn(this, (SkillOverview.__proto__ || Object.getPrototypeOf(SkillOverview)).apply(this, arguments));
+    }
+
+    _createClass(SkillOverview, [{
+        key: 'render',
+        value: function render() {
+            var skillOver = this.props.skillOver.map(function (item, index) {
+                if (item.name) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        { key: index },
+                        item.name
+                    );
+                }
+            });
+            var skillOverName = this.props.skillOver.map(function (item, index) {
+                if (item.title) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        { id: 'skillOverTitle', key: index },
+                        item.title
+                    );
+                }
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { id: 'skillOver' },
+                skillOverName,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { id: 'overWrap' },
+                    skillOver
+                )
+            );
+        }
+    }]);
+
+    return SkillOverview;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+var SkillsTitle = function (_React$Component11) {
+    _inherits(SkillsTitle, _React$Component11);
 
     function SkillsTitle() {
         _classCallCheck(this, SkillsTitle);
@@ -12827,8 +12871,8 @@ var SkillsTitle = function (_React$Component10) {
     return SkillsTitle;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var HTMLName = function (_React$Component11) {
-    _inherits(HTMLName, _React$Component11);
+var HTMLName = function (_React$Component12) {
+    _inherits(HTMLName, _React$Component12);
 
     function HTMLName() {
         _classCallCheck(this, HTMLName);
@@ -12855,8 +12899,8 @@ var HTMLName = function (_React$Component11) {
     return HTMLName;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var HTMLDes = function (_React$Component12) {
-    _inherits(HTMLDes, _React$Component12);
+var HTMLDes = function (_React$Component13) {
+    _inherits(HTMLDes, _React$Component13);
 
     function HTMLDes() {
         _classCallCheck(this, HTMLDes);
@@ -12887,8 +12931,8 @@ var HTMLDes = function (_React$Component12) {
     return HTMLDes;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var HTMLList = function (_React$Component13) {
-    _inherits(HTMLList, _React$Component13);
+var HTMLList = function (_React$Component14) {
+    _inherits(HTMLList, _React$Component14);
 
     function HTMLList() {
         _classCallCheck(this, HTMLList);
@@ -12919,8 +12963,8 @@ var HTMLList = function (_React$Component13) {
     return HTMLList;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var HTML = function (_React$Component14) {
-    _inherits(HTML, _React$Component14);
+var HTML = function (_React$Component15) {
+    _inherits(HTML, _React$Component15);
 
     function HTML() {
         _classCallCheck(this, HTML);
@@ -12954,8 +12998,8 @@ var HTML = function (_React$Component14) {
     return HTML;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var CssName = function (_React$Component15) {
-    _inherits(CssName, _React$Component15);
+var CssName = function (_React$Component16) {
+    _inherits(CssName, _React$Component16);
 
     function CssName() {
         _classCallCheck(this, CssName);
@@ -12982,8 +13026,8 @@ var CssName = function (_React$Component15) {
     return CssName;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var CssDes = function (_React$Component16) {
-    _inherits(CssDes, _React$Component16);
+var CssDes = function (_React$Component17) {
+    _inherits(CssDes, _React$Component17);
 
     function CssDes() {
         _classCallCheck(this, CssDes);
@@ -13014,8 +13058,8 @@ var CssDes = function (_React$Component16) {
     return CssDes;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var CssList = function (_React$Component17) {
-    _inherits(CssList, _React$Component17);
+var CssList = function (_React$Component18) {
+    _inherits(CssList, _React$Component18);
 
     function CssList() {
         _classCallCheck(this, CssList);
@@ -13046,8 +13090,8 @@ var CssList = function (_React$Component17) {
     return CssList;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var Css = function (_React$Component18) {
-    _inherits(Css, _React$Component18);
+var Css = function (_React$Component19) {
+    _inherits(Css, _React$Component19);
 
     function Css() {
         _classCallCheck(this, Css);
@@ -13080,8 +13124,8 @@ var Css = function (_React$Component18) {
     return Css;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var JsName = function (_React$Component19) {
-    _inherits(JsName, _React$Component19);
+var JsName = function (_React$Component20) {
+    _inherits(JsName, _React$Component20);
 
     function JsName() {
         _classCallCheck(this, JsName);
@@ -13108,8 +13152,8 @@ var JsName = function (_React$Component19) {
     return JsName;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var JsDes = function (_React$Component20) {
-    _inherits(JsDes, _React$Component20);
+var JsDes = function (_React$Component21) {
+    _inherits(JsDes, _React$Component21);
 
     function JsDes() {
         _classCallCheck(this, JsDes);
@@ -13140,8 +13184,8 @@ var JsDes = function (_React$Component20) {
     return JsDes;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var JsList = function (_React$Component21) {
-    _inherits(JsList, _React$Component21);
+var JsList = function (_React$Component22) {
+    _inherits(JsList, _React$Component22);
 
     function JsList() {
         _classCallCheck(this, JsList);
@@ -13172,8 +13216,8 @@ var JsList = function (_React$Component21) {
     return JsList;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var Js = function (_React$Component22) {
-    _inherits(Js, _React$Component22);
+var Js = function (_React$Component23) {
+    _inherits(Js, _React$Component23);
 
     function Js() {
         _classCallCheck(this, Js);
@@ -13206,8 +13250,203 @@ var Js = function (_React$Component22) {
     return Js;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var ProjectTitle = function (_React$Component23) {
-    _inherits(ProjectTitle, _React$Component23);
+var Frameworks = function (_React$Component24) {
+    _inherits(Frameworks, _React$Component24);
+
+    function Frameworks() {
+        _classCallCheck(this, Frameworks);
+
+        return _possibleConstructorReturn(this, (Frameworks.__proto__ || Object.getPrototypeOf(Frameworks)).apply(this, arguments));
+    }
+
+    _createClass(Frameworks, [{
+        key: 'render',
+        value: function render() {
+            var description = this.props.frameworks.map(function (item, index) {
+                if (item.description) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index },
+                        item.description
+                    );
+                }
+            });
+            var title = this.props.frameworks.map(function (item, index) {
+                if (item.title) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        { className: 'frameworks', key: index },
+                        item.title
+                    );
+                }
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { id: 'frameworks' },
+                title,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'target_border3' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'target_dote3' },
+                        ' '
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'ul',
+                    { className: 'frameworksDes' },
+                    description
+                )
+            );
+        }
+    }]);
+
+    return Frameworks;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+var LearningExperience = function (_React$Component25) {
+    _inherits(LearningExperience, _React$Component25);
+
+    function LearningExperience() {
+        _classCallCheck(this, LearningExperience);
+
+        return _possibleConstructorReturn(this, (LearningExperience.__proto__ || Object.getPrototypeOf(LearningExperience)).apply(this, arguments));
+    }
+
+    _createClass(LearningExperience, [{
+        key: 'render',
+        value: function render() {
+            var title = this.props.learningExperience.map(function (item, index) {
+                if (item.title) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'h2',
+                        { id: 'learningTitle', key: index },
+                        item.title
+                    );
+                }
+            });
+            var learningTime1 = this.props.learningExperience.map(function (item, index) {
+                if (item.time1) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { id: 'time1', key: index },
+                        item.time1
+                    );
+                }
+            });
+            var learningDes1 = this.props.learningExperience.map(function (item, index) {
+                if (item.description1) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index },
+                        item.description1
+                    );
+                }
+            });
+            var learningTime2 = this.props.learningExperience.map(function (item, index) {
+                if (item.time2) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { id: 'time2', key: index },
+                        item.time2
+                    );
+                }
+            });
+            var learningDes2 = this.props.learningExperience.map(function (item, index) {
+                if (item.description2) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index },
+                        item.description2
+                    );
+                }
+            });
+            var rows = [];
+            this.props.learningExperience.forEach(function (item, index) {
+                if (item.homework) {
+                    return rows.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { id: 'hm_name', key: index },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { id: 'des' },
+                            '\u7F51\u6613\u4E91\u8BFE\u5802\u4F5C\u4E1A'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { id: 'hm_wrap' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'a',
+                                { id: 'hm_url', href: item.url },
+                                item.homework
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { id: 'hm_des', key: index },
+                                item.description
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { id: 'hm_type' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'hm_dot', style: { backgroundColor: item.light } }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'p',
+                                    { id: 'hm_last', key: index },
+                                    item.type
+                                )
+                            )
+                        )
+                    ));
+                }
+            });
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { id: 'learningExperience' },
+                title,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'target_border4' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'target_dote4' },
+                        ' '
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'ul',
+                    { className: 'leaningExperience' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { className: 'mooc' },
+                        learningTime1,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'ul',
+                            { className: 'learningDes1' },
+                            learningDes1
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { className: 'netEasy' },
+                        learningTime2,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'ul',
+                            { className: 'learningDes2' },
+                            learningDes2
+                        )
+                    ),
+                    rows
+                )
+            );
+        }
+    }]);
+
+    return LearningExperience;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+var ProjectTitle = function (_React$Component26) {
+    _inherits(ProjectTitle, _React$Component26);
 
     function ProjectTitle() {
         _classCallCheck(this, ProjectTitle);
@@ -13234,8 +13473,8 @@ var ProjectTitle = function (_React$Component23) {
     return ProjectTitle;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var ProjectList = function (_React$Component24) {
-    _inherits(ProjectList, _React$Component24);
+var ProjectList = function (_React$Component27) {
+    _inherits(ProjectList, _React$Component27);
 
     function ProjectList() {
         _classCallCheck(this, ProjectList);
@@ -13290,8 +13529,8 @@ var ProjectList = function (_React$Component24) {
     return ProjectList;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var Project = function (_React$Component25) {
-    _inherits(Project, _React$Component25);
+var Project = function (_React$Component28) {
+    _inherits(Project, _React$Component28);
 
     function Project() {
         _classCallCheck(this, Project);
@@ -13308,10 +13547,10 @@ var Project = function (_React$Component25) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ProjectTitle, { project: this.props.project }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'target_border3' },
+                    { className: 'target_border5' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'target_dote3' },
+                        { className: 'target_dote5' },
                         ' '
                     )
                 ),
@@ -13324,15 +13563,21 @@ var Project = function (_React$Component25) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 var ITEMS = [{ overTitle: 'Overview' }, { downloadHref: 'https://github.com/citylcs/resume' }, { downloadName: 'Download resume' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
-var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司 (电子教育笔)' }, { description: '坐标测量员(实习)' }, { description: 'Jul 2014 - Sep 2014' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
+var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Jul 2014 - Sep 2014' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
+
+var SKILLOVER = [{ title: 'Skills Overview' }, { name: 'HTML(5)' }, { name: 'CSS(3)' }, { name: 'JavaScript' }, { name: 'DOM' }, { name: 'W3C标准' }, { name: 'ES6' }, { name: '语义化' }, { name: '响应式布局' }, { name: 'Git' }, { name: 'Ajax' }, { name: 'JQuery' }, { name: 'React' }, { name: 'bootstrap' }, { name: 'SASS' }, { name: 'Gulp' }, { name: 'Webpack' }];
 
 var HTML1 = [{ htmlTitle: 'Skills' }, { htmlName: 'HTML' }, { description: 'HTML5' }, { htmlList: '熟悉HTML标签的基本属性和使用方法' }, { htmlList: '熟悉W3C标准，能按要求写出简洁无误的代码' }, { htmlList: '了解HTML5 video、canvas等新标签的属性以及使用方法' }];
 
-var CSS = [{ name: 'CSS' }, { description: 'CSS3' }, { description: 'transform' }, { description: 'animate' }, { description: 'bootstrap' }, { list: '熟练使用css，擅长div + css的布局，能够写出兼容常见浏览器的代码' }, { list: '熟悉盒模型，以及各类布局的使用方法' }, { list: '熟悉css3新增属性的使用，border-radius、transform、animation等' }, { list: '熟练使用响应式布局适配各设备的屏幕尺寸' }, { list: '熟练使用SASS预处理器' }, { list: '熟悉bootstrap、animation.css等css框架的使用' }];
+var CSS = [{ name: 'CSS' }, { description: 'CSS3' }, { description: 'transform' }, { list: '熟练使用css，擅长div + css的布局，能够写出兼容常见浏览器的代码' }, { list: '熟悉盒模型，以及各类布局的使用方法' }, { list: '熟悉css3新增属性的使用，border-radius、transform、animation等' }, { list: '熟练使用响应式布局适配各设备的屏幕尺寸' }, { list: '熟练使用SASS预处理器' }];
 
-var JS = [{ name: 'JavaScript' }, { description: 'jQuery' }, { description: 'React' }, { description: 'ES6' }, { description: 'DOM' }, { list: 'JavaScript基础牢固，熟悉DOM、event、ajax，能够编写出基本的JavaScript原生代码' }, { list: '熟悉ES6语法，个人项目中已全面使用ES6进行开发' }, { list: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { list: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { list: '熟练使用Git版本控制工具' }, { list: '熟练使用Gulp、webpack等前端自动化构建工具' }, { list: '熟练使用chrome developer tools调试工具来调试代码' }, { list: '熟练使用intellij idea、Sublime Text3等编辑器进行前端页面手工式的开发' }, { list: '熟练使用Google、Stack Overflow等网站解决问题' }];
+var JS = [{ name: 'JavaScript' }, { description: 'ES6' }, { description: 'DOM' }, { list: 'JavaScript基础牢固，熟悉DOM、event、ajax，能够编写出基本的JavaScript原生代码' }, { list: '熟悉ES6语法，个人项目中已全面使用ES6进行开发' }, { list: '熟练使用chrome developer tools调试工具来调试代码' }, { list: '熟练使用intellij idea、Sublime Text3等编辑器进行前端页面手工式的开发' }, { list: '熟练使用Google、Stack Overflow等网站解决问题' }];
 
-var PROJECT = [{ title: 'Project' }, { list: 'Victor-series-page', description: '网络加速服务类主页', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page' }, { list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList' }, { list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation' }, { list: 'React-TODO', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO' }];
+var FRAMEWORKS = [{ title: 'Frameworks & Tools' }, { description: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { description: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { description: '熟悉bootstrap、animation.css等css框架的使用' }, { description: '熟练使用Git版本控制工具' }, { description: '熟练使用Gulp、webpack等前端自动化构建工具' }];
+
+var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Mar 2016 - Jun - 2016 慕课网' }, { time2: 'Aug 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, { homework: 'netEasyFrontEndHomework', description: '网易云课堂前端为专业作业及考试', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework' }];
+
+var PROJECT = [{ title: 'Project' }, { list: 'Victor-series-page', description: '网络加速服务类主页', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page' }, { list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList' }, { list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation' }, { list: 'React Demo', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO' }, { list: 'resume', description: 'React + SASS + Gulp + Webpack开发的个人简历', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/resume' }];
 
 function Resume() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -13356,18 +13601,30 @@ function Resume() {
                 ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { key: '3' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTML, { html: HTML1 })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SkillOverview, { skillOver: SKILLOVER })
                 ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { key: '4' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Css, { css: CSS })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTML, { html: HTML1 })
                 ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { key: '5' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Js, { js: JS })
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Css, { css: CSS })
                 ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { key: '6' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Js, { js: JS })
+                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { key: '7' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Frameworks, { frameworks: FRAMEWORKS })
+                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { key: '8' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(LearningExperience, { learningExperience: LEARNING })
+                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { key: '9' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Project, { project: PROJECT })
                 )]
             )

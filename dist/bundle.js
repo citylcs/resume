@@ -13362,6 +13362,44 @@ var LearningExperience = function (_React$Component25) {
                     );
                 }
             });
+            var rows = [];
+            this.props.learningExperience.forEach(function (item, index) {
+                if (item.homework) {
+                    return rows.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { id: 'hm_name', key: index },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { id: 'des' },
+                            '\u7F51\u6613\u4E91\u8BFE\u5802\u4F5C\u4E1A'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { id: 'hm_wrap' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'a',
+                                { id: 'hm_url', href: item.url },
+                                item.homework
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'p',
+                                { id: 'hm_des', key: index },
+                                item.description
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { id: 'hm_type' },
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'hm_dot', style: { backgroundColor: item.light } }),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'p',
+                                    { id: 'hm_last', key: index },
+                                    item.type
+                                )
+                            )
+                        )
+                    ));
+                }
+            });
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'learningExperience' },
@@ -13397,7 +13435,8 @@ var LearningExperience = function (_React$Component25) {
                             { className: 'learningDes2' },
                             learningDes2
                         )
-                    )
+                    ),
+                    rows
                 )
             );
         }
@@ -13536,9 +13575,39 @@ var JS = [{ name: 'JavaScript' }, { description: 'ES6' }, { description: 'DOM' }
 
 var FRAMEWORKS = [{ title: 'Frameworks & Tools' }, { description: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { description: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { description: '熟悉bootstrap、animation.css等css框架的使用' }, { description: '熟练使用Git版本控制工具' }, { description: '熟练使用Gulp、webpack等前端自动化构建工具' }];
 
-var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Mar 2016 - Jun - 2016 慕课网' }, { time2: 'Aug 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }];
+var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Mar 2016 - Jun - 2016 慕课网' }, { time2: 'Aug 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, { homework: 'netEasyFrontEndHomework', description: '网易云课堂前端为专业作业及考试', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework' }];
 
-var PROJECT = [{ title: 'Project' }, { list: 'Victor-series-page', description: '网络加速服务类主页', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/Victor-series-page' }, { list: 'toDoList', description: '原生JavaScript开发的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/toDoList' }, { list: 'Calculation', description: '一个简单的、原生JavaScript制作的计算器', type: 'CSS', light: '#563d7c', url: 'https://github.com/citylcs/Calculation' }, { list: 'React Demo', description: 'React.js框架下开发的带过滤功能的todolist应用', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/React-TODO' }, { list: 'resume', description: 'React + SASS + Gulp + Webpack开发的个人简历', type: 'JavaScript', light: '#f1e054', url: 'https://github.com/citylcs/resume' }];
+var PROJECT = [{ title: 'Project' }, {
+    list: 'Victor-series-page',
+    description: '网络加速服务类主页',
+    type: 'HTML',
+    light: '#e34c26',
+    url: 'https://github.com/citylcs/Victor-series-page'
+}, {
+    list: 'toDoList',
+    description: '原生JavaScript开发的todolist应用',
+    type: 'JavaScript',
+    light: '#f1e054',
+    url: 'https://github.com/citylcs/toDoList'
+}, {
+    list: 'Calculation',
+    description: '一个简单的、原生JavaScript制作的计算器',
+    type: 'CSS',
+    light: '#563d7c',
+    url: 'https://github.com/citylcs/Calculation'
+}, {
+    list: 'React Demo',
+    description: 'React.js框架下开发的带过滤功能的todolist应用',
+    type: 'JavaScript',
+    light: '#f1e054',
+    url: 'https://github.com/citylcs/React-TODO'
+}, {
+    list: 'resume',
+    description: 'React + SASS + Gulp + Webpack开发的个人简历',
+    type: 'JavaScript',
+    light: '#f1e054',
+    url: 'https://github.com/citylcs/resume'
+}];
 
 function Resume() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
