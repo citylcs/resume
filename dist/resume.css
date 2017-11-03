@@ -151,6 +151,11 @@ h3 {
 
 p, h3 {
   padding-left: 35px;
+  font-family: "PingFang SC", sans-serif;
+}
+
+li{
+  font-family: "PingFang SC", sans-serif;
 }
 
 ul {
