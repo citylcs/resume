@@ -55,7 +55,7 @@ class OverviewTitle extends React.Component {
         return (
             <div className="overview_top">
                 {overTitle}
-                <a href="https://github.com/citylcs/resume"
+                <a download href="pdf/kelvin.pdf"
                         className="download_button" >
                     {download}
                 </a>
