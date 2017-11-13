@@ -13563,7 +13563,7 @@ var Project = function (_React$Component28) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 var ITEMS = [{ overTitle: 'Overview' }, { downloadHref: 'https://github.com/citylcs/resume' }, { downloadName: 'Download resume' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
-var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Jul 2014 - Sep 2014' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
+var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Sep 2016 - Dec 2016' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
 
 var SKILLOVER = [{ title: 'Skills Overview' }, { name: 'HTML(5)' }, { name: 'CSS(3)' }, { name: 'JavaScript' }, { name: 'DOM' }, { name: 'W3C标准' }, { name: 'ES6' }, { name: '语义化' }, { name: '响应式布局' }, { name: 'Git' }, { name: 'Ajax' }, { name: 'JQuery' }, { name: 'React' }, { name: 'bootstrap' }, { name: 'SASS' }, { name: 'Gulp' }, { name: 'Webpack' }];
 
@@ -13575,7 +13575,7 @@ var JS = [{ name: 'JavaScript' }, { description: 'ES6' }, { description: 'DOM' }
 
 var FRAMEWORKS = [{ title: 'Frameworks & Tools' }, { description: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { description: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { description: '熟悉bootstrap、animation.css等css框架的使用' }, { description: '熟练使用Git版本控制工具' }, { description: '熟练使用Gulp、webpack等前端自动化构建工具' }];
 
-var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Mar 2016 - Jun - 2016 慕课网' }, { time2: 'Aug 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, { homework: 'netEasyFrontEndHomework', description: '网易云课堂前端为专业作业及考试', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework' }];
+var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Aug 2016 - Oct 2016 慕课网' }, { time2: 'Oct 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, { homework: 'netEasyFrontEndHomework', description: '网易云课堂前端微专业作业及考试', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework' }];
 
 var PROJECT = [{ title: 'Project' }, {
     list: 'Victor-series-page',

@@ -500,7 +500,7 @@ const EXP = [
     {ExpTitle: 'Experience'},
     {ExpCompanyName: '北京拓思德科技有限公司'},
     {description: '坐标测量员(软件测试)'},
-    {description: 'Jul 2014 - Sep 2014'},
+    {description: 'Sep 2016 - Dec 2016'},
     {expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置'},
     {expList: '负责该公司产品的包装和市场宣传'},
 ];
@@ -567,8 +567,8 @@ const FRAMEWORKS = [
 
 const LEARNING = [
     {title: 'Learning Experience'},
-    {time1: 'Mar 2016 - Jun - 2016 慕课网'},
-    {time2:'Aug 2016 - Dec 2016 网易云课堂'},
+    {time1: 'Aug 2016 - Oct 2016 慕课网'},
+    {time2:'Oct 2016 - Dec 2016 网易云课堂'},
     {description1: 'HTML + CSS基础课程'},
     {description1: 'CSS网页布局'},
     {description1: '网页简单布局之结构与表现原则'},
@@ -582,7 +582,7 @@ const LEARNING = [
     {description2: 'DOM编程艺术'},
     {description2: '页面架构'},
     {description2: '产品前端架构'},
-    {homework: 'netEasyFrontEndHomework' ,description: '网易云课堂前端为专业作业及考试', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework'},
+    {homework: 'netEasyFrontEndHomework' ,description: '网易云课堂前端微专业作业及考试', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework'},
 ];
 
 const PROJECT = [
