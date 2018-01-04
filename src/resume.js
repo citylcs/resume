@@ -2,6 +2,39 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import QueueAnim from 'rc-queue-anim'
 
+
+function singleTextOutput(arr, key) {//输出单个文本组件
+    return arr.map((item) => {
+        if (item[key]) {
+            return item[key];
+        }
+    });
+}
+
+function multipleTextOutputWithP(arr, key, class_name) {//输出多个p标签组件
+    return arr.map((item, index) => {
+        if (item[key]) {
+            return <p key={index} className={class_name}>{item[key]}</p>
+        }
+    });
+}
+
+function multipleTextOutputWithLi(arr, key, class_name) {//输出多个li标签组件
+    return arr.map((item, index) => {
+        if (item[key]) {
+            return <li key={index} className={class_name}>{item[key]}</li>
+        }
+    });
+}
+
+function multipleTextOutputWithSpan(arr, key) {//输出多个span标签组件，无className
+    return arr.map((item, index) => {
+        if (item[key]) {
+            return <span key={index}>{item[key]}</span>
+        }
+    });
+}
+
 class TopBar extends React.Component {
     constructor(props) {
         super(props);
@@ -42,20 +75,13 @@ class TopBar extends React.Component {
 
 class OverviewTitle extends React.Component {
     render() {
-        let overTitle = this.props.items.map((item, index) => {
-            if (item.overTitle) {
-                return <h2 className="bigTitle" key={index}>{item.overTitle}</h2>;
-            }
-        });
-        let download = this.props.items.map((item) => {
-            if (item.downloadName) {
-                return item.downloadName;
-            }
-        });
+        let overTitle = singleTextOutput(this.props.items, 'overTitle'),
+            download = singleTextOutput(this.props.items, 'downloadName'),
+            downloadUrl = singleTextOutput(this.props.items, 'downloadUrl');
         return (
             <div className="overview_top">
-                {overTitle}
-                <a download href="pdf/kelvin.pdf"
+                <h2 className="bigTitle">{overTitle}</h2>
+                <a download href={downloadUrl}
                         className="download_button" >
                     {download}
                 </a>
@@ -66,12 +92,12 @@ class OverviewTitle extends React.Component {
 
 class OverviewContent extends React.Component {
     render() {
-        let content = this.props.items.map((item, index) => {
-            if (item.overContent) {
-                return <p key={index} className="overview_content">{item.overContent}</p>;
-            }
-        });
-        return <div>{content}</div>
+        let content = singleTextOutput(this.props.items, 'overContent');
+        return (
+            <div>
+                <p className="overview_content">{content}</p>
+            </div>
+        )
     }
 }
 
@@ -88,55 +114,37 @@ class Overview extends React.Component {
 
 class ExperienceTitle extends React.Component {
     render() {
-        let expTitle = this.props.exp.map((item) => {
-            if (item.ExpTitle) {
-                return item.ExpTitle;
-            }
-        });
+        let expTitle = singleTextOutput(this.props.exp, 'ExpTitle');
         return <h2>{expTitle}</h2>
     }
 }
 
 class Company extends React.Component {
     render() {
-        let company = this.props.exp.map((item) => {
-            if (item.ExpCompanyName) {
-                return item.ExpCompanyName;
-            }
-        });
+        let company = singleTextOutput(this.props.exp, 'ExpCompanyName');
         return <h3>{company}</h3>
     }
 }
 
-function Target() {
+function Target() {//侧边栏圆点
     return(
         <div className="target_border">
-            <div className="target_dote"> </div>
+            <div className="target_dote" />
         </div>
     )
 }
 
 class Description extends React.Component {
     render() {
-        let des = this.props.exp.map((item, index) => {
-            if (item.description) {
-                return <p key={index}>{item.description}</p>
-            }
-        });
+        let des = multipleTextOutputWithP(this.props.exp, 'description');
         return <div>{des}</div>
     }
 }
 
 class ExpList extends React.Component {
     render() {
-        let list = this.props.exp.map((item, index) => {
-            if (item.expList) {
-                return <li key={index}>{item.expList}</li>
-            }
-        });
-        return (
-            <ul>{list}</ul>
-        )
+        let list = multipleTextOutputWithLi(this.props.exp, 'expList');
+        return <ul>{list}</ul>
     }
 }
 
@@ -156,19 +164,11 @@ class Experience extends React.Component {
 
 class SkillOverview extends React.Component {
     render() {
-        let skillOver = this.props.skillOver.map((item, index) => {
-            if (item.name) {
-                return <span key={index}>{item.name}</span>
-            }
-        });
-        let skillOverName = this.props.skillOver.map((item, index) => {
-            if (item.title) {
-                return <h2 id="skillOverTitle" key={index}>{item.title}</h2>
-            }
-        });
+        let skillOver = multipleTextOutputWithSpan(this.props.skillOver, 'name'),
+            skillOverTitle = singleTextOutput(this.props.skillOver, 'title');
         return (
             <div id="skillOver">
-                {skillOverName}
+                <h2 id="skillOverTitle">{skillOverTitle}</h2>
                 <div id="overWrap">
                     {skillOver}
                 </div>
@@ -179,11 +179,7 @@ class SkillOverview extends React.Component {
 
 class SkillsTitle extends React.Component {
     render() {
-        let htmlTitle = this.props.html.map((item) => {
-            if (item.htmlTitle) {
-                return item.htmlTitle;
-            }
-        });
+        let htmlTitle = singleTextOutput(this.props.html, 'htmlTitle');
         return (
             <h2 className="title">{htmlTitle}</h2>
         )
@@ -192,11 +188,7 @@ class SkillsTitle extends React.Component {
 
 class HTMLName extends React.Component {
     render() {
-        let htmlName = this.props.html.map((item) => {
-            if (item.htmlName) {
-                return item.htmlName;
-            }
-        });
+        let htmlName = singleTextOutput(this.props.html, 'htmlName');
         return (
             <h3 className="middleTitle">{htmlName}</h3>
         )
@@ -205,24 +197,18 @@ class HTMLName extends React.Component {
 
 class HTMLDes extends React.Component {
     render() {
-        let des = this.props.html.map((item, index) => {
-            if (item.description) {
-                return <p className="second_ul" key={index}>{item.description}</p>
-            }
-        });
+        let des = singleTextOutput(this.props.html, 'description');
         return (
-            <div>{des}</div>
+            <div>
+                <p className="second_ul">{des}</p>
+            </div>
         )
     }
 }
 
 class HTMLList extends React.Component {
     render() {
-        let list = this.props.html.map((item, index) => {
-            if (item.htmlList) {
-                return <li key={index}>{item.htmlList}</li>
-            }
-        });
+        let list = multipleTextOutputWithLi(this.props.html, 'htmlList');
         return (
             <ul className="second_ul">{list}</ul>
         )
@@ -247,38 +233,22 @@ class HTML extends React.Component {
 
 class CssName extends React.Component {
     render() {
-        let cssName = this.props.css.map((item) => {
-            if (item.name) {
-                return item.name;
-            }
-        });
+        let cssName = singleTextOutput(this.props.css, 'name');
         return <h3 className="middleTitle">{cssName}</h3>
     }
 }
 
 class CssDes extends React.Component {
     render() {
-        let des = this.props.css.map((item, index) => {
-            if (item.description) {
-                return <p className="second_ul" key={index}>{item.description}</p>
-            }
-        });
-        return (
-            <div>{des}</div>
-        )
+        let des = multipleTextOutputWithP(this.props.css, 'description', 'second_ul');
+        return <div>{des}</div>
     }
 }
 
 class CssList extends React.Component {
     render() {
-        let list = this.props.css.map((item, index) => {
-            if (item.list) {
-                return <li key={index}>{item.list}</li>
-            }
-        });
-        return (
-            <ul className="second_ul">{list}</ul>
-        )
+        let list = multipleTextOutputWithLi(this.props.css, 'list');
+        return <ul className="second_ul">{list}</ul>
     }
 }
 
@@ -299,38 +269,22 @@ class Css extends React.Component {
 
 class JsName extends React.Component {
     render() {
-        let jsName = this.props.js.map((item) => {
-            if (item.name) {
-                return item.name;
-            }
-        });
+        let jsName = singleTextOutput(this.props.js, 'name');
         return <h3 className="middleTitle">{jsName}</h3>
     }
 }
 
 class JsDes extends React.Component {
     render() {
-        let des = this.props.js.map((item, index) => {
-            if (item.description) {
-                return <p className="second_ul" key={index}>{item.description}</p>
-            }
-        });
-        return (
-            <div>{des}</div>
-        )
+        let des = multipleTextOutputWithP(this.props.js, 'description', 'second_ul');
+        return <div>{des}</div>
     }
 }
 
 class JsList extends React.Component {
     render() {
-        let list = this.props.js.map((item, index) => {
-            if (item.list) {
-                return <li key={index}>{item.list}</li>
-            }
-        });
-        return (
-            <ul className="second_ul">{list}</ul>
-        )
+        let list = multipleTextOutputWithLi(this.props.js, 'list');
+        return <ul className="second_ul">{list}</ul>
     }
 }
 
@@ -351,24 +305,16 @@ class Js extends React.Component {
 
 class Frameworks extends React.Component {
     render() {
-        let description = this.props.frameworks.map((item, index) => {
-            if (item.description) {
-                return <li key={index}>{item.description}</li>
-            }
-        });
-        let title = this.props.frameworks.map((item, index) => {
-            if (item.title) {
-                return <h2 className="frameworks" key={index}>{item.title}</h2>
-            }
-        });
+        let title = singleTextOutput(this.props.frameworks, 'title'),
+            des = multipleTextOutputWithLi(this.props.frameworks, 'description');
         return(
             <div id="frameworks">
-                {title}
+                <h2 className="frameworks">{title}</h2>
                 <div className="target_border3">
-                    <div className="target_dote3"> </div>
+                    <div className="target_dote3" />
                 </div>
                 <ul className="frameworksDes">
-                    {description}
+                    {des}
                 </ul>
             </div>
         )
@@ -377,32 +323,12 @@ class Frameworks extends React.Component {
 
 class LearningExperience extends React.Component {
     render() {
-        let title = this.props.learningExperience.map((item, index) => {
-            if (item.title) {
-                return <h2 id="learningTitle" key={index}>{item.title}</h2>
-            }
-        });
-        let learningTime1 = this.props.learningExperience.map((item, index) => {
-            if (item.time1) {
-                return <p id="time1" key={index}>{item.time1}</p>
-            }
-        });
-        let learningDes1 = this.props.learningExperience.map((item, index) => {
-            if (item.description1) {
-                return <li key={index}>{item.description1}</li>
-            }
-        });
-        let learningTime2 = this.props.learningExperience.map((item, index) => {
-            if (item.time2) {
-                return <p id="time2" key={index}>{item.time2}</p>
-            }
-        });
-        let learningDes2 = this.props.learningExperience.map((item, index) => {
-            if (item.description2) {
-                return <li key={index}>{item.description2}</li>
-            }
-        });
-        let rows = [];
+        let title = singleTextOutput(this.props.learningExperience, 'title'),
+            learningTime1 = singleTextOutput(this.props.learningExperience, 'time1'),
+            learningDes1 = multipleTextOutputWithLi(this.props.learningExperience, 'description1'),
+            learningTime2 = singleTextOutput(this.props.learningExperience, 'time2'),
+            learningDes2 = multipleTextOutputWithLi(this.props.learningExperience, 'description2'),
+            rows = [];
         this.props.learningExperience.forEach((item, index) => {
             if (item.homework) {
                 return (
@@ -424,17 +350,17 @@ class LearningExperience extends React.Component {
         });
         return (
             <div id="learningExperience">
-                {title}
+                <h2 id="learningTitle">{title}</h2>
                 <div className="target_border4">
                     <div className="target_dote4"> </div>
                 </div>
                 <ul className="leaningExperience">
                     <li className="mooc">
-                        {learningTime1}
+                        <p id="time1">{learningTime1}</p>
                         <ul className="learningDes1">{learningDes1}</ul>
                     </li>
                     <li className="netEasy">
-                        {learningTime2}
+                        <p id="time2">{learningTime2}</p>
                         <ul className="learningDes2">{learningDes2}</ul>
                     </li>
                     {rows}
@@ -446,11 +372,7 @@ class LearningExperience extends React.Component {
 
 class ProjectTitle extends React.Component {
     render() {
-        let title = this.props.project.map((item) => {
-            if (item.title) {
-                return item.title;
-            }
-        });
+        let title = singleTextOutput(this.props.project, 'title');
         return <h2 className="last_title">{title}</h2>
     }
 }
@@ -492,8 +414,8 @@ class Project extends React.Component {
 
 const ITEMS = [
     {overTitle: 'Overview'},
-    {downloadHref: 'https://github.com/citylcs/resume'},
     {downloadName: 'Download resume'},
+    {downloadUrl: 'pdf/kelvin.pdf'},
     {overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。'},
 ];
 const EXP = [
@@ -582,7 +504,13 @@ const LEARNING = [
     {description2: 'DOM编程艺术'},
     {description2: '页面架构'},
     {description2: '产品前端架构'},
-    {homework: 'netEasyFrontEndHomework' ,description: '网易云课堂前端微专业作业及考试', type: 'HTML',light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework'},
+    {
+        homework: 'netEasyFrontEndHomework',
+        description: '网易云课堂前端微专业作业及考试',
+        type: 'HTML',
+        light: '#e34c26',
+        url: 'https://github.com/citylcs/netEasyFrontEndHomework'
+    },
 ];
 
 const PROJECT = [

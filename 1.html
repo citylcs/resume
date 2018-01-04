@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #aa{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #888;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+        form{
+            width: inherit;
+        }
+        h2{
+            text-align: center;
+        }
+        label{
+            display: block;
+            text-align: center;
+        }
+        input{
+            width: 350px;
+            height: 50px;
+        }
+        button{
+            width: 250px;
+            height: 30px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="click2()" id="black" style="background: rgba(0, 0, 0, .8);width: 100%;height: 100%;z-index: 1000;display: none;">
+        <div style="background-color: #fff;width: 600px;height: 400px;z-index: 10000;position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;">
+            <h1 style="color: #ff0000;text-align: center">
+                SynTax Error;
+            </h1>
+        </div>
+    </div>
+    <div id="aa">
+        <form>
+            <h2>register</h2>
+            <label>username:<input id="usn" type="text" placeholder="your name"></label>
+            <label>password:<input type="password"></label>
+            <button onclick="click1()">Submit</button>
+        </form>
+    </div>
+    <script>
+        let black = document.getElementById('black');
+        let button = document.getElementsByTagName('button');
+        let username = document.getElementById('usn');
+        function click1(e) {
+            black.style.display = 'block';
+            e.preventDefault;
+        }
+        function click2() {
+            black.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
