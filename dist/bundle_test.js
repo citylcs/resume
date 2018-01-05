@@ -9792,6 +9792,36 @@ function multipleTextOutput(arr, key, tags, class_name) {
     });
 }
 
+function contentOutput(arr, key, tags, class_name) {
+    return arr.map(function (item, index) {
+        if (item[key]) {
+            if (tags === undefined && class_name === undefined) {
+                return item[key];
+            } else {
+                if (tags === 'p') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'li') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'span') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else {}
+            }
+        }
+    });
+}
+
 var Main = function (_React$Component) {
     _inherits(Main, _React$Component);
 
@@ -9804,8 +9834,9 @@ var Main = function (_React$Component) {
     _createClass(Main, [{
         key: 'render',
         value: function render() {
-            var fuck = arrayMap(this.props.fake, 'description');
-            var fuck2 = multipleTextOutput(this.props.fake, 'name', 'span', 'fuckMe');
+            var fuck = contentOutput(this.props.fake, 'description');
+            var fuck2 = contentOutput(this.props.fake, 'name', 'p', 'caonima');
+            var fuck3 = contentOutput(this.props.fake, 'name', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -9814,7 +9845,12 @@ var Main = function (_React$Component) {
                     null,
                     fuck
                 ),
-                fuck2
+                fuck2,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'ul',
+                    null,
+                    fuck3
+                )
             );
         }
     }]);

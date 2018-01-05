@@ -12462,6 +12462,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+function contentOutput(arr, key, tags, class_name) {
+    //输出数组内容组件
+    return arr.map(function (item, index) {
+        if (item[key]) {
+            if (tags === undefined && class_name === undefined) {
+                //输出单个无标签内容
+                return item[key];
+            } else {
+                //输出多个可选标签内容
+                if (tags === 'p') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'li') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'span') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else {}
+            }
+        }
+    });
+}
+
 var TopBar = function (_React$Component) {
     _inherits(TopBar, _React$Component);
 
@@ -12507,7 +12540,11 @@ var TopBar = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         null,
-                        'Resume'
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: 'resume.html' },
+                            'Resume'
+                        )
                     )
                 ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'ul',
@@ -12524,7 +12561,11 @@ var TopBar = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         null,
-                        'Resume'
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: 'resume.html' },
+                            'Resume'
+                        )
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -12551,27 +12592,19 @@ var OverviewTitle = function (_React$Component2) {
     _createClass(OverviewTitle, [{
         key: 'render',
         value: function render() {
-            var overTitle = this.props.items.map(function (item, index) {
-                if (item.overTitle) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h2',
-                        { className: 'bigTitle', key: index },
-                        item.overTitle
-                    );
-                }
-            });
-            var download = this.props.items.map(function (item) {
-                if (item.downloadName) {
-                    return item.downloadName;
-                }
-            });
+            var overTitle = contentOutput(this.props.items, 'overTitle'),
+                download = contentOutput(this.props.items, 'downloadName');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'overview_top' },
-                overTitle,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    { className: 'bigTitle' },
+                    overTitle
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'a',
-                    { download: true, href: 'pdf/kelvin.pdf',
+                    { download: true, href: 'pdf/resume.pdf',
                         className: 'download_button' },
                     download
                 )
@@ -12594,19 +12627,15 @@ var OverviewContent = function (_React$Component3) {
     _createClass(OverviewContent, [{
         key: 'render',
         value: function render() {
-            var content = this.props.items.map(function (item, index) {
-                if (item.overContent) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { key: index, className: 'overview_content' },
-                        item.overContent
-                    );
-                }
-            });
+            var content = contentOutput(this.props.items, 'overContent');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                content
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    { className: 'overview_content' },
+                    content
+                )
             );
         }
     }]);
@@ -12650,11 +12679,7 @@ var ExperienceTitle = function (_React$Component5) {
     _createClass(ExperienceTitle, [{
         key: 'render',
         value: function render() {
-            var expTitle = this.props.exp.map(function (item) {
-                if (item.ExpTitle) {
-                    return item.ExpTitle;
-                }
-            });
+            var expTitle = contentOutput(this.props.exp, 'ExpTitle');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h2',
                 null,
@@ -12678,11 +12703,7 @@ var Company = function (_React$Component6) {
     _createClass(Company, [{
         key: 'render',
         value: function render() {
-            var company = this.props.exp.map(function (item) {
-                if (item.ExpCompanyName) {
-                    return item.ExpCompanyName;
-                }
-            });
+            var company = contentOutput(this.props.exp, 'ExpCompanyName');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h3',
                 null,
@@ -12695,14 +12716,11 @@ var Company = function (_React$Component6) {
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
 function Target() {
+    //侧边栏圆点
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'target_border' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'target_dote' },
-            ' '
-        )
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'target_dote' })
     );
 }
 
@@ -12718,15 +12736,7 @@ var Description = function (_React$Component7) {
     _createClass(Description, [{
         key: 'render',
         value: function render() {
-            var des = this.props.exp.map(function (item, index) {
-                if (item.description) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { key: index },
-                        item.description
-                    );
-                }
-            });
+            var des = contentOutput(this.props.exp, 'description', 'p');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -12750,15 +12760,7 @@ var ExpList = function (_React$Component8) {
     _createClass(ExpList, [{
         key: 'render',
         value: function render() {
-            var list = this.props.exp.map(function (item, index) {
-                if (item.expList) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.expList
-                    );
-                }
-            });
+            var list = contentOutput(this.props.exp, 'expList', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 null,
@@ -12809,28 +12811,16 @@ var SkillOverview = function (_React$Component10) {
     _createClass(SkillOverview, [{
         key: 'render',
         value: function render() {
-            var skillOver = this.props.skillOver.map(function (item, index) {
-                if (item.name) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'span',
-                        { key: index },
-                        item.name
-                    );
-                }
-            });
-            var skillOverName = this.props.skillOver.map(function (item, index) {
-                if (item.title) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h2',
-                        { id: 'skillOverTitle', key: index },
-                        item.title
-                    );
-                }
-            });
+            var skillOver = contentOutput(this.props.skillOver, 'name', 'span'),
+                skillOverTitle = contentOutput(this.props.skillOver, 'title');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'skillOver' },
-                skillOverName,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    { id: 'skillOverTitle' },
+                    skillOverTitle
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { id: 'overWrap' },
@@ -12855,11 +12845,7 @@ var SkillsTitle = function (_React$Component11) {
     _createClass(SkillsTitle, [{
         key: 'render',
         value: function render() {
-            var htmlTitle = this.props.html.map(function (item) {
-                if (item.htmlTitle) {
-                    return item.htmlTitle;
-                }
-            });
+            var htmlTitle = contentOutput(this.props.html, 'htmlTitle');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h2',
                 { className: 'title' },
@@ -12883,11 +12869,7 @@ var HTMLName = function (_React$Component12) {
     _createClass(HTMLName, [{
         key: 'render',
         value: function render() {
-            var htmlName = this.props.html.map(function (item) {
-                if (item.htmlName) {
-                    return item.htmlName;
-                }
-            });
+            var htmlName = contentOutput(this.props.html, 'htmlName');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h3',
                 { className: 'middleTitle' },
@@ -12911,19 +12893,15 @@ var HTMLDes = function (_React$Component13) {
     _createClass(HTMLDes, [{
         key: 'render',
         value: function render() {
-            var des = this.props.html.map(function (item, index) {
-                if (item.description) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { className: 'second_ul', key: index },
-                        item.description
-                    );
-                }
-            });
+            var des = contentOutput(this.props.html, 'description');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                des
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    { className: 'second_ul' },
+                    des
+                )
             );
         }
     }]);
@@ -12943,15 +12921,7 @@ var HTMLList = function (_React$Component14) {
     _createClass(HTMLList, [{
         key: 'render',
         value: function render() {
-            var list = this.props.html.map(function (item, index) {
-                if (item.htmlList) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.htmlList
-                    );
-                }
-            });
+            var list = contentOutput(this.props.html, 'htmlList', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13010,11 +12980,7 @@ var CssName = function (_React$Component16) {
     _createClass(CssName, [{
         key: 'render',
         value: function render() {
-            var cssName = this.props.css.map(function (item) {
-                if (item.name) {
-                    return item.name;
-                }
-            });
+            var cssName = contentOutput(this.props.css, 'name');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h3',
                 { className: 'middleTitle' },
@@ -13038,15 +13004,7 @@ var CssDes = function (_React$Component17) {
     _createClass(CssDes, [{
         key: 'render',
         value: function render() {
-            var des = this.props.css.map(function (item, index) {
-                if (item.description) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { className: 'second_ul', key: index },
-                        item.description
-                    );
-                }
-            });
+            var des = contentOutput(this.props.css, 'description', 'p', 'second_ul');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -13070,15 +13028,7 @@ var CssList = function (_React$Component18) {
     _createClass(CssList, [{
         key: 'render',
         value: function render() {
-            var list = this.props.css.map(function (item, index) {
-                if (item.list) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.list
-                    );
-                }
-            });
+            var list = contentOutput(this.props.css, 'list', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13136,11 +13086,7 @@ var JsName = function (_React$Component20) {
     _createClass(JsName, [{
         key: 'render',
         value: function render() {
-            var jsName = this.props.js.map(function (item) {
-                if (item.name) {
-                    return item.name;
-                }
-            });
+            var jsName = contentOutput(this.props.js, 'name');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h3',
                 { className: 'middleTitle' },
@@ -13164,15 +13110,7 @@ var JsDes = function (_React$Component21) {
     _createClass(JsDes, [{
         key: 'render',
         value: function render() {
-            var des = this.props.js.map(function (item, index) {
-                if (item.description) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { className: 'second_ul', key: index },
-                        item.description
-                    );
-                }
-            });
+            var des = contentOutput(this.props.js, 'description', 'p', 'second_ul');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -13196,15 +13134,7 @@ var JsList = function (_React$Component22) {
     _createClass(JsList, [{
         key: 'render',
         value: function render() {
-            var list = this.props.js.map(function (item, index) {
-                if (item.list) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.list
-                    );
-                }
-            });
+            var list = contentOutput(this.props.js, 'list', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13262,41 +13192,25 @@ var Frameworks = function (_React$Component24) {
     _createClass(Frameworks, [{
         key: 'render',
         value: function render() {
-            var description = this.props.frameworks.map(function (item, index) {
-                if (item.description) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.description
-                    );
-                }
-            });
-            var title = this.props.frameworks.map(function (item, index) {
-                if (item.title) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h2',
-                        { className: 'frameworks', key: index },
-                        item.title
-                    );
-                }
-            });
+            var title = contentOutput(this.props.frameworks, 'title'),
+                des = contentOutput(this.props.frameworks, 'description', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'frameworks' },
-                title,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    { className: 'frameworks' },
+                    title
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'target_border3' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'target_dote3' },
-                        ' '
-                    )
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'target_dote3' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'ul',
                     { className: 'frameworksDes' },
-                    description
+                    des
                 )
             );
         }
@@ -13317,52 +13231,12 @@ var LearningExperience = function (_React$Component25) {
     _createClass(LearningExperience, [{
         key: 'render',
         value: function render() {
-            var title = this.props.learningExperience.map(function (item, index) {
-                if (item.title) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'h2',
-                        { id: 'learningTitle', key: index },
-                        item.title
-                    );
-                }
-            });
-            var learningTime1 = this.props.learningExperience.map(function (item, index) {
-                if (item.time1) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { id: 'time1', key: index },
-                        item.time1
-                    );
-                }
-            });
-            var learningDes1 = this.props.learningExperience.map(function (item, index) {
-                if (item.description1) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.description1
-                    );
-                }
-            });
-            var learningTime2 = this.props.learningExperience.map(function (item, index) {
-                if (item.time2) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { id: 'time2', key: index },
-                        item.time2
-                    );
-                }
-            });
-            var learningDes2 = this.props.learningExperience.map(function (item, index) {
-                if (item.description2) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index },
-                        item.description2
-                    );
-                }
-            });
-            var rows = [];
+            var title = contentOutput(this.props.learningExperience, 'title'),
+                learningTime1 = contentOutput(this.props.learningExperience, 'time1'),
+                learningDes1 = contentOutput(this.props.learningExperience, 'description1', 'li'),
+                learningTime2 = contentOutput(this.props.learningExperience, 'time2'),
+                learningDes2 = contentOutput(this.props.learningExperience, 'description2', 'li'),
+                rows = [];
             this.props.learningExperience.forEach(function (item, index) {
                 if (item.homework) {
                     return rows.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -13403,7 +13277,11 @@ var LearningExperience = function (_React$Component25) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'learningExperience' },
-                title,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    { id: 'learningTitle' },
+                    title
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'target_border4' },
@@ -13419,7 +13297,11 @@ var LearningExperience = function (_React$Component25) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         { className: 'mooc' },
-                        learningTime1,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { id: 'time1' },
+                            learningTime1
+                        ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'ul',
                             { className: 'learningDes1' },
@@ -13429,7 +13311,11 @@ var LearningExperience = function (_React$Component25) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         { className: 'netEasy' },
-                        learningTime2,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { id: 'time2' },
+                            learningTime2
+                        ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'ul',
                             { className: 'learningDes2' },
@@ -13457,11 +13343,7 @@ var ProjectTitle = function (_React$Component26) {
     _createClass(ProjectTitle, [{
         key: 'render',
         value: function render() {
-            var title = this.props.project.map(function (item) {
-                if (item.title) {
-                    return item.title;
-                }
-            });
+            var title = contentOutput(this.props.project, 'title');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h2',
                 { className: 'last_title' },
@@ -13562,7 +13444,7 @@ var Project = function (_React$Component28) {
     return Project;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var ITEMS = [{ overTitle: 'Overview' }, { downloadHref: 'https://github.com/citylcs/resume' }, { downloadName: 'Download resume' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
+var ITEMS = [{ overTitle: 'Overview' }, { downloadName: 'Download resume' }, { downloadUrl: 'pdf/resume.pdf' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
 var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Sep 2016 - Dec 2016' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
 
 var SKILLOVER = [{ title: 'Skills Overview' }, { name: 'HTML(5)' }, { name: 'CSS(3)' }, { name: 'JavaScript' }, { name: 'DOM' }, { name: 'W3C标准' }, { name: 'ES6' }, { name: '语义化' }, { name: '响应式布局' }, { name: 'Git' }, { name: 'Ajax' }, { name: 'JQuery' }, { name: 'React' }, { name: 'bootstrap' }, { name: 'SASS' }, { name: 'Gulp' }, { name: 'Webpack' }];
@@ -13575,7 +13457,13 @@ var JS = [{ name: 'JavaScript' }, { description: 'ES6' }, { description: 'DOM' }
 
 var FRAMEWORKS = [{ title: 'Frameworks & Tools' }, { description: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { description: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { description: '熟悉bootstrap、animation.css等css框架的使用' }, { description: '熟练使用Git版本控制工具' }, { description: '熟练使用Gulp、webpack等前端自动化构建工具' }];
 
-var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Aug 2016 - Oct 2016 慕课网' }, { time2: 'Oct 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, { homework: 'netEasyFrontEndHomework', description: '网易云课堂前端微专业作业及考试', type: 'HTML', light: '#e34c26', url: 'https://github.com/citylcs/netEasyFrontEndHomework' }];
+var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Aug 2016 - Oct 2016 慕课网' }, { time2: 'Oct 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, {
+    homework: 'netEasyFrontEndHomework',
+    description: '网易云课堂前端微专业作业及考试',
+    type: 'HTML',
+    light: '#e34c26',
+    url: 'https://github.com/citylcs/netEasyFrontEndHomework'
+}];
 
 var PROJECT = [{ title: 'Project' }, {
     list: 'Victor-series-page',

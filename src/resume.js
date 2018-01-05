@@ -3,27 +3,24 @@ import ReactDOM from 'react-dom'
 import QueueAnim from 'rc-queue-anim'
 
 
-function singleTextOutput(arr, key) {//输出单个文本内容组件
-    return arr.map((item) => {
-        if (item[key]) {
-            return item[key];
-        }
-    });
-}
-
-function multipleTextOutput(arr, key, tags, class_name) {//输出多个可选标签的文本内容组件
+function contentOutput(arr, key, tags, class_name) {//输出数组内容组件
     return arr.map((item, index) => {
         if (item[key]) {
-            if (tags === 'p') {
-                return <p key={index} className={class_name}>{item[key]}</p>
+            if (tags === undefined && class_name === undefined) {//输出单个无标签内容
+                return item[key];
             }
-            else if (tags === 'li') {
-                return <li key={index} className={class_name}>{item[key]}</li>
+            else {//输出多个可选标签内容
+                if (tags === 'p') {
+                    return <p key={index} className={class_name}>{item[key]}</p>
+                }
+                else if (tags === 'li') {
+                    return <li key={index} className={class_name}>{item[key]}</li>
+                }
+                else if (tags === 'span') {
+                    return <span key={index} className={class_name}>{item[key]}</span>
+                }
+                else{}
             }
-            else if (tags === 'span') {
-                return <span key={index} className={class_name}>{item[key]}</span>
-            }
-            else{}
         }
     });
 }
@@ -68,14 +65,13 @@ class TopBar extends React.Component {
 
 class OverviewTitle extends React.Component {
     render() {
-        let overTitle = singleTextOutput(this.props.items, 'overTitle'),
-            download = singleTextOutput(this.props.items, 'downloadName'),
-            downloadUrl = singleTextOutput(this.props.items, 'downloadUrl');
+        let overTitle = contentOutput(this.props.items, 'overTitle'),
+            download = contentOutput(this.props.items, 'downloadName');
         return (
             <div className="overview_top">
                 <h2 className="bigTitle">{overTitle}</h2>
-                <a download href={downloadUrl}
-                        className="download_button" >
+                <a download href="pdf/resume.pdf"
+                   className="download_button" >
                     {download}
                 </a>
             </div>
@@ -85,7 +81,7 @@ class OverviewTitle extends React.Component {
 
 class OverviewContent extends React.Component {
     render() {
-        let content = singleTextOutput(this.props.items, 'overContent');
+        let content = contentOutput(this.props.items, 'overContent');
         return (
             <div>
                 <p className="overview_content">{content}</p>
@@ -107,14 +103,14 @@ class Overview extends React.Component {
 
 class ExperienceTitle extends React.Component {
     render() {
-        let expTitle = singleTextOutput(this.props.exp, 'ExpTitle');
+        let expTitle = contentOutput(this.props.exp, 'ExpTitle');
         return <h2>{expTitle}</h2>
     }
 }
 
 class Company extends React.Component {
     render() {
-        let company = singleTextOutput(this.props.exp, 'ExpCompanyName');
+        let company = contentOutput(this.props.exp, 'ExpCompanyName');
         return <h3>{company}</h3>
     }
 }
@@ -129,14 +125,14 @@ function Target() {//侧边栏圆点
 
 class Description extends React.Component {
     render() {
-        let des = multipleTextOutput(this.props.exp, 'description', 'p');
+        let des = contentOutput(this.props.exp, 'description', 'p');
         return <div>{des}</div>
     }
 }
 
 class ExpList extends React.Component {
     render() {
-        let list = multipleTextOutput(this.props.exp, 'expList', 'li');
+        let list = contentOutput(this.props.exp, 'expList', 'li');
         return <ul>{list}</ul>
     }
 }
@@ -157,8 +153,8 @@ class Experience extends React.Component {
 
 class SkillOverview extends React.Component {
     render() {
-        let skillOver = multipleTextOutput(this.props.skillOver, 'name', 'span'),
-            skillOverTitle = singleTextOutput(this.props.skillOver, 'title');
+        let skillOver = contentOutput(this.props.skillOver, 'name', 'span'),
+            skillOverTitle = contentOutput(this.props.skillOver, 'title');
         return (
             <div id="skillOver">
                 <h2 id="skillOverTitle">{skillOverTitle}</h2>
@@ -172,7 +168,7 @@ class SkillOverview extends React.Component {
 
 class SkillsTitle extends React.Component {
     render() {
-        let htmlTitle = singleTextOutput(this.props.html, 'htmlTitle');
+        let htmlTitle = contentOutput(this.props.html, 'htmlTitle');
         return (
             <h2 className="title">{htmlTitle}</h2>
         )
@@ -181,7 +177,7 @@ class SkillsTitle extends React.Component {
 
 class HTMLName extends React.Component {
     render() {
-        let htmlName = singleTextOutput(this.props.html, 'htmlName');
+        let htmlName = contentOutput(this.props.html, 'htmlName');
         return (
             <h3 className="middleTitle">{htmlName}</h3>
         )
@@ -190,7 +186,7 @@ class HTMLName extends React.Component {
 
 class HTMLDes extends React.Component {
     render() {
-        let des = singleTextOutput(this.props.html, 'description');
+        let des = contentOutput(this.props.html, 'description');
         return (
             <div>
                 <p className="second_ul">{des}</p>
@@ -201,7 +197,7 @@ class HTMLDes extends React.Component {
 
 class HTMLList extends React.Component {
     render() {
-        let list = multipleTextOutput(this.props.html, 'htmlList', 'li');
+        let list = contentOutput(this.props.html, 'htmlList', 'li');
         return (
             <ul className="second_ul">{list}</ul>
         )
@@ -226,21 +222,21 @@ class HTML extends React.Component {
 
 class CssName extends React.Component {
     render() {
-        let cssName = singleTextOutput(this.props.css, 'name');
+        let cssName = contentOutput(this.props.css, 'name');
         return <h3 className="middleTitle">{cssName}</h3>
     }
 }
 
 class CssDes extends React.Component {
     render() {
-        let des = multipleTextOutput(this.props.css, 'description', 'p', 'second_ul');
+        let des = contentOutput(this.props.css, 'description', 'p', 'second_ul');
         return <div>{des}</div>
     }
 }
 
 class CssList extends React.Component {
     render() {
-        let list = multipleTextOutput(this.props.css, 'list', 'li');
+        let list = contentOutput(this.props.css, 'list', 'li');
         return <ul className="second_ul">{list}</ul>
     }
 }
@@ -262,21 +258,21 @@ class Css extends React.Component {
 
 class JsName extends React.Component {
     render() {
-        let jsName = singleTextOutput(this.props.js, 'name');
+        let jsName = contentOutput(this.props.js, 'name');
         return <h3 className="middleTitle">{jsName}</h3>
     }
 }
 
 class JsDes extends React.Component {
     render() {
-        let des = multipleTextOutput(this.props.js, 'description', 'p', 'second_ul');
+        let des = contentOutput(this.props.js, 'description', 'p', 'second_ul');
         return <div>{des}</div>
     }
 }
 
 class JsList extends React.Component {
     render() {
-        let list = multipleTextOutput(this.props.js, 'list', 'li');
+        let list = contentOutput(this.props.js, 'list', 'li');
         return <ul className="second_ul">{list}</ul>
     }
 }
@@ -298,8 +294,8 @@ class Js extends React.Component {
 
 class Frameworks extends React.Component {
     render() {
-        let title = singleTextOutput(this.props.frameworks, 'title'),
-            des = multipleTextOutput(this.props.frameworks, 'description', 'li');
+        let title = contentOutput(this.props.frameworks, 'title'),
+            des = contentOutput(this.props.frameworks, 'description', 'li');
         return(
             <div id="frameworks">
                 <h2 className="frameworks">{title}</h2>
@@ -316,11 +312,11 @@ class Frameworks extends React.Component {
 
 class LearningExperience extends React.Component {
     render() {
-        let title = singleTextOutput(this.props.learningExperience, 'title'),
-            learningTime1 = singleTextOutput(this.props.learningExperience, 'time1'),
-            learningDes1 = multipleTextOutput(this.props.learningExperience, 'description1', 'li'),
-            learningTime2 = singleTextOutput(this.props.learningExperience, 'time2'),
-            learningDes2 = multipleTextOutput(this.props.learningExperience, 'description2', 'li'),
+        let title = contentOutput(this.props.learningExperience, 'title'),
+            learningTime1 = contentOutput(this.props.learningExperience, 'time1'),
+            learningDes1 = contentOutput(this.props.learningExperience, 'description1', 'li'),
+            learningTime2 = contentOutput(this.props.learningExperience, 'time2'),
+            learningDes2 = contentOutput(this.props.learningExperience, 'description2', 'li'),
             rows = [];
         this.props.learningExperience.forEach((item, index) => {
             if (item.homework) {
@@ -365,7 +361,7 @@ class LearningExperience extends React.Component {
 
 class ProjectTitle extends React.Component {
     render() {
-        let title = singleTextOutput(this.props.project, 'title');
+        let title = contentOutput(this.props.project, 'title');
         return <h2 className="last_title">{title}</h2>
     }
 }
@@ -408,7 +404,7 @@ class Project extends React.Component {
 const ITEMS = [
     {overTitle: 'Overview'},
     {downloadName: 'Download resume'},
-    {downloadUrl: '../pdf/kelvin.pdf'},
+    {downloadUrl: 'pdf/resume.pdf'},
     {overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。'},
 ];
 const EXP = [

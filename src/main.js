@@ -2,6 +2,28 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import QueueAnim from 'rc-queue-anim'
 
+function contentOutput(arr, key, tags, class_name) {//输出数组内容组件
+    return arr.map((item, index) => {
+        if (item[key]) {
+            if (tags === undefined && class_name === undefined) {//输出单个无标签内容
+                return item[key];
+            }
+            else {//输出多个可选标签内容
+                if (tags === 'p') {
+                    return <p key={index} className={class_name}>{item[key]}</p>
+                }
+                else if (tags === 'li') {
+                    return <li key={index} className={class_name}>{item[key]}</li>
+                }
+                else if (tags === 'span') {
+                    return <span key={index} className={class_name}>{item[key]}</span>
+                }
+                else{}
+            }
+        }
+    });
+}
+
 class TopBar extends React.Component {
     constructor(props) {
         super(props);
@@ -24,11 +46,11 @@ class TopBar extends React.Component {
                 {
                     this.state.isHidden ?
                         <ul className="menu_content open">
-                            <li>Me</li>
+                            <li><a href="./index.html">Me</a></li>
                             <li><a href="./resume.html">Resume</a></li>
                         </ul> :
                         <ul className="menu_content">
-                            <li>Me</li>
+                            <li><a href="./index.html">Me</a></li>
                             <li><a href="./resume.html">Resume</a></li>
                         </ul>
                 }
@@ -42,12 +64,9 @@ class TopBar extends React.Component {
 
 class Photo extends React.Component {
     render() {
-        let photo = this.props.items.map((item, index) => {
-            return <img key={index} src={item.imgSrc} id="photo" />
-        });
         return (
             <div id="photoWrap">
-                {photo}
+                <img src="img/icon.png" id="photo" />
             </div>
         )
     }
@@ -55,11 +74,11 @@ class Photo extends React.Component {
 
 class WellCome extends React.Component {
     render() {
-        let title = this.props.items.map((item, index) => {
-            return <h1 id="wellCome" key={index}>{item.wellCome}</h1>
-        });
+        let title = contentOutput(this.props.items, 'wellCome');
         return (
-            <div id="wellComeWrap">{title}</div>
+            <div id="wellComeWrap">
+                <h1 id="wellCome">{title}</h1>
+            </div>
         )
     }
 }

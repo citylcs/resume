@@ -12462,38 +12462,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-function singleTextOutput(arr, key) {
-    //输出单个文本内容组件
-    return arr.map(function (item) {
-        if (item[key]) {
-            return item[key];
-        }
-    });
-}
-
-function multipleTextOutput(arr, key, tags, class_name) {
-    //输出多个可选标签的文本内容组件
+function contentOutput(arr, key, tags, class_name) {
+    //输出数组内容组件
     return arr.map(function (item, index) {
         if (item[key]) {
-            if (tags === 'p') {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { key: index, className: class_name },
-                    item[key]
-                );
-            } else if (tags === 'li') {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'li',
-                    { key: index, className: class_name },
-                    item[key]
-                );
-            } else if (tags === 'span') {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'span',
-                    { key: index, className: class_name },
-                    item[key]
-                );
-            } else {}
+            if (tags === undefined && class_name === undefined) {
+                //输出单个无标签内容
+                return item[key];
+            } else {
+                //输出多个可选标签内容
+                if (tags === 'p') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'li') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else if (tags === 'span') {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        { key: index, className: class_name },
+                        item[key]
+                    );
+                } else {}
+            }
         }
     });
 }
@@ -12536,7 +12533,7 @@ var TopBar = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'a',
-                            { href: 'index.html' },
+                            { href: './index.html' },
                             'Me'
                         )
                     ),
@@ -12545,7 +12542,7 @@ var TopBar = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'a',
-                            { href: 'resume.html' },
+                            { href: './resume.html' },
                             'Resume'
                         )
                     )
@@ -12557,7 +12554,7 @@ var TopBar = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'a',
-                            { href: 'index.html' },
+                            { href: './index.html' },
                             'Me'
                         )
                     ),
@@ -12566,7 +12563,7 @@ var TopBar = function (_React$Component) {
                         null,
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'a',
-                            { href: 'resume.html' },
+                            { href: './resume.html' },
                             'Resume'
                         )
                     )
@@ -12583,978 +12580,176 @@ var TopBar = function (_React$Component) {
     return TopBar;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var OverviewTitle = function (_React$Component2) {
-    _inherits(OverviewTitle, _React$Component2);
+var Photo = function (_React$Component2) {
+    _inherits(Photo, _React$Component2);
 
-    function OverviewTitle() {
-        _classCallCheck(this, OverviewTitle);
+    function Photo() {
+        _classCallCheck(this, Photo);
 
-        return _possibleConstructorReturn(this, (OverviewTitle.__proto__ || Object.getPrototypeOf(OverviewTitle)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Photo.__proto__ || Object.getPrototypeOf(Photo)).apply(this, arguments));
     }
 
-    _createClass(OverviewTitle, [{
+    _createClass(Photo, [{
         key: 'render',
         value: function render() {
-            var overTitle = singleTextOutput(this.props.items, 'overTitle'),
-                download = singleTextOutput(this.props.items, 'downloadName'),
-                downloadUrl = singleTextOutput(this.props.items, 'downloadUrl');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'overview_top' },
+                { id: 'photoWrap' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/icon.png', id: 'photo' })
+            );
+        }
+    }]);
+
+    return Photo;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+var WellCome = function (_React$Component3) {
+    _inherits(WellCome, _React$Component3);
+
+    function WellCome() {
+        _classCallCheck(this, WellCome);
+
+        return _possibleConstructorReturn(this, (WellCome.__proto__ || Object.getPrototypeOf(WellCome)).apply(this, arguments));
+    }
+
+    _createClass(WellCome, [{
+        key: 'render',
+        value: function render() {
+            var title = contentOutput(this.props.items, 'wellCome');
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { id: 'wellComeWrap' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { className: 'bigTitle' },
-                    overTitle
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { download: true, href: downloadUrl,
-                        className: 'download_button' },
-                    download
-                )
-            );
-        }
-    }]);
-
-    return OverviewTitle;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var OverviewContent = function (_React$Component3) {
-    _inherits(OverviewContent, _React$Component3);
-
-    function OverviewContent() {
-        _classCallCheck(this, OverviewContent);
-
-        return _possibleConstructorReturn(this, (OverviewContent.__proto__ || Object.getPrototypeOf(OverviewContent)).apply(this, arguments));
-    }
-
-    _createClass(OverviewContent, [{
-        key: 'render',
-        value: function render() {
-            var content = singleTextOutput(this.props.items, 'overContent');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { className: 'overview_content' },
-                    content
-                )
-            );
-        }
-    }]);
-
-    return OverviewContent;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Overview = function (_React$Component4) {
-    _inherits(Overview, _React$Component4);
-
-    function Overview() {
-        _classCallCheck(this, Overview);
-
-        return _possibleConstructorReturn(this, (Overview.__proto__ || Object.getPrototypeOf(Overview)).apply(this, arguments));
-    }
-
-    _createClass(Overview, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'overview' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(OverviewTitle, { items: this.props.items }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(OverviewContent, { items: this.props.items })
-            );
-        }
-    }]);
-
-    return Overview;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var ExperienceTitle = function (_React$Component5) {
-    _inherits(ExperienceTitle, _React$Component5);
-
-    function ExperienceTitle() {
-        _classCallCheck(this, ExperienceTitle);
-
-        return _possibleConstructorReturn(this, (ExperienceTitle.__proto__ || Object.getPrototypeOf(ExperienceTitle)).apply(this, arguments));
-    }
-
-    _createClass(ExperienceTitle, [{
-        key: 'render',
-        value: function render() {
-            var expTitle = singleTextOutput(this.props.exp, 'ExpTitle');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h2',
-                null,
-                expTitle
-            );
-        }
-    }]);
-
-    return ExperienceTitle;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Company = function (_React$Component6) {
-    _inherits(Company, _React$Component6);
-
-    function Company() {
-        _classCallCheck(this, Company);
-
-        return _possibleConstructorReturn(this, (Company.__proto__ || Object.getPrototypeOf(Company)).apply(this, arguments));
-    }
-
-    _createClass(Company, [{
-        key: 'render',
-        value: function render() {
-            var company = singleTextOutput(this.props.exp, 'ExpCompanyName');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h3',
-                null,
-                company
-            );
-        }
-    }]);
-
-    return Company;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-function Target() {
-    //侧边栏圆点
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'target_border' },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'target_dote' })
-    );
-}
-
-var Description = function (_React$Component7) {
-    _inherits(Description, _React$Component7);
-
-    function Description() {
-        _classCallCheck(this, Description);
-
-        return _possibleConstructorReturn(this, (Description.__proto__ || Object.getPrototypeOf(Description)).apply(this, arguments));
-    }
-
-    _createClass(Description, [{
-        key: 'render',
-        value: function render() {
-            var des = multipleTextOutput(this.props.exp, 'description', 'p');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                des
-            );
-        }
-    }]);
-
-    return Description;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var ExpList = function (_React$Component8) {
-    _inherits(ExpList, _React$Component8);
-
-    function ExpList() {
-        _classCallCheck(this, ExpList);
-
-        return _possibleConstructorReturn(this, (ExpList.__proto__ || Object.getPrototypeOf(ExpList)).apply(this, arguments));
-    }
-
-    _createClass(ExpList, [{
-        key: 'render',
-        value: function render() {
-            var list = multipleTextOutput(this.props.exp, 'expList', 'li');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'ul',
-                null,
-                list
-            );
-        }
-    }]);
-
-    return ExpList;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Experience = function (_React$Component9) {
-    _inherits(Experience, _React$Component9);
-
-    function Experience() {
-        _classCallCheck(this, Experience);
-
-        return _possibleConstructorReturn(this, (Experience.__proto__ || Object.getPrototypeOf(Experience)).apply(this, arguments));
-    }
-
-    _createClass(Experience, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ExperienceTitle, { exp: this.props.exp }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Target, null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Company, { exp: this.props.exp }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Description, { exp: this.props.exp }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ExpList, { exp: this.props.exp })
-            );
-        }
-    }]);
-
-    return Experience;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var SkillOverview = function (_React$Component10) {
-    _inherits(SkillOverview, _React$Component10);
-
-    function SkillOverview() {
-        _classCallCheck(this, SkillOverview);
-
-        return _possibleConstructorReturn(this, (SkillOverview.__proto__ || Object.getPrototypeOf(SkillOverview)).apply(this, arguments));
-    }
-
-    _createClass(SkillOverview, [{
-        key: 'render',
-        value: function render() {
-            var skillOver = multipleTextOutput(this.props.skillOver, 'name', 'span'),
-                skillOverTitle = singleTextOutput(this.props.skillOver, 'title');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { id: 'skillOver' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { id: 'skillOverTitle' },
-                    skillOverTitle
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { id: 'overWrap' },
-                    skillOver
-                )
-            );
-        }
-    }]);
-
-    return SkillOverview;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var SkillsTitle = function (_React$Component11) {
-    _inherits(SkillsTitle, _React$Component11);
-
-    function SkillsTitle() {
-        _classCallCheck(this, SkillsTitle);
-
-        return _possibleConstructorReturn(this, (SkillsTitle.__proto__ || Object.getPrototypeOf(SkillsTitle)).apply(this, arguments));
-    }
-
-    _createClass(SkillsTitle, [{
-        key: 'render',
-        value: function render() {
-            var htmlTitle = singleTextOutput(this.props.html, 'htmlTitle');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h2',
-                { className: 'title' },
-                htmlTitle
-            );
-        }
-    }]);
-
-    return SkillsTitle;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var HTMLName = function (_React$Component12) {
-    _inherits(HTMLName, _React$Component12);
-
-    function HTMLName() {
-        _classCallCheck(this, HTMLName);
-
-        return _possibleConstructorReturn(this, (HTMLName.__proto__ || Object.getPrototypeOf(HTMLName)).apply(this, arguments));
-    }
-
-    _createClass(HTMLName, [{
-        key: 'render',
-        value: function render() {
-            var htmlName = singleTextOutput(this.props.html, 'htmlName');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h3',
-                { className: 'middleTitle' },
-                htmlName
-            );
-        }
-    }]);
-
-    return HTMLName;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var HTMLDes = function (_React$Component13) {
-    _inherits(HTMLDes, _React$Component13);
-
-    function HTMLDes() {
-        _classCallCheck(this, HTMLDes);
-
-        return _possibleConstructorReturn(this, (HTMLDes.__proto__ || Object.getPrototypeOf(HTMLDes)).apply(this, arguments));
-    }
-
-    _createClass(HTMLDes, [{
-        key: 'render',
-        value: function render() {
-            var des = singleTextOutput(this.props.html, 'description');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { className: 'second_ul' },
-                    des
-                )
-            );
-        }
-    }]);
-
-    return HTMLDes;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var HTMLList = function (_React$Component14) {
-    _inherits(HTMLList, _React$Component14);
-
-    function HTMLList() {
-        _classCallCheck(this, HTMLList);
-
-        return _possibleConstructorReturn(this, (HTMLList.__proto__ || Object.getPrototypeOf(HTMLList)).apply(this, arguments));
-    }
-
-    _createClass(HTMLList, [{
-        key: 'render',
-        value: function render() {
-            var list = multipleTextOutput(this.props.html, 'htmlList', 'li');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'ul',
-                { className: 'second_ul' },
-                list
-            );
-        }
-    }]);
-
-    return HTMLList;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var HTML = function (_React$Component15) {
-    _inherits(HTML, _React$Component15);
-
-    function HTML() {
-        _classCallCheck(this, HTML);
-
-        return _possibleConstructorReturn(this, (HTML.__proto__ || Object.getPrototypeOf(HTML)).apply(this, arguments));
-    }
-
-    _createClass(HTML, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SkillsTitle, { html: this.props.html }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'target_border2' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'target_dote2' },
-                        ' '
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTMLName, { html: this.props.html }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTMLDes, { html: this.props.html }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTMLList, { html: this.props.html })
-            );
-        }
-    }]);
-
-    return HTML;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var CssName = function (_React$Component16) {
-    _inherits(CssName, _React$Component16);
-
-    function CssName() {
-        _classCallCheck(this, CssName);
-
-        return _possibleConstructorReturn(this, (CssName.__proto__ || Object.getPrototypeOf(CssName)).apply(this, arguments));
-    }
-
-    _createClass(CssName, [{
-        key: 'render',
-        value: function render() {
-            var cssName = singleTextOutput(this.props.css, 'name');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h3',
-                { className: 'middleTitle' },
-                cssName
-            );
-        }
-    }]);
-
-    return CssName;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var CssDes = function (_React$Component17) {
-    _inherits(CssDes, _React$Component17);
-
-    function CssDes() {
-        _classCallCheck(this, CssDes);
-
-        return _possibleConstructorReturn(this, (CssDes.__proto__ || Object.getPrototypeOf(CssDes)).apply(this, arguments));
-    }
-
-    _createClass(CssDes, [{
-        key: 'render',
-        value: function render() {
-            var des = multipleTextOutput(this.props.css, 'description', 'p', 'second_ul');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                des
-            );
-        }
-    }]);
-
-    return CssDes;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var CssList = function (_React$Component18) {
-    _inherits(CssList, _React$Component18);
-
-    function CssList() {
-        _classCallCheck(this, CssList);
-
-        return _possibleConstructorReturn(this, (CssList.__proto__ || Object.getPrototypeOf(CssList)).apply(this, arguments));
-    }
-
-    _createClass(CssList, [{
-        key: 'render',
-        value: function render() {
-            var list = multipleTextOutput(this.props.css, 'list', 'li');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'ul',
-                { className: 'second_ul' },
-                list
-            );
-        }
-    }]);
-
-    return CssList;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Css = function (_React$Component19) {
-    _inherits(Css, _React$Component19);
-
-    function Css() {
-        _classCallCheck(this, Css);
-
-        return _possibleConstructorReturn(this, (Css.__proto__ || Object.getPrototypeOf(Css)).apply(this, arguments));
-    }
-
-    _createClass(Css, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'target_border2' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'target_dote2' },
-                        ' '
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CssName, { css: this.props.css }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CssDes, { css: this.props.css }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CssList, { css: this.props.css })
-            );
-        }
-    }]);
-
-    return Css;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var JsName = function (_React$Component20) {
-    _inherits(JsName, _React$Component20);
-
-    function JsName() {
-        _classCallCheck(this, JsName);
-
-        return _possibleConstructorReturn(this, (JsName.__proto__ || Object.getPrototypeOf(JsName)).apply(this, arguments));
-    }
-
-    _createClass(JsName, [{
-        key: 'render',
-        value: function render() {
-            var jsName = singleTextOutput(this.props.js, 'name');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h3',
-                { className: 'middleTitle' },
-                jsName
-            );
-        }
-    }]);
-
-    return JsName;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var JsDes = function (_React$Component21) {
-    _inherits(JsDes, _React$Component21);
-
-    function JsDes() {
-        _classCallCheck(this, JsDes);
-
-        return _possibleConstructorReturn(this, (JsDes.__proto__ || Object.getPrototypeOf(JsDes)).apply(this, arguments));
-    }
-
-    _createClass(JsDes, [{
-        key: 'render',
-        value: function render() {
-            var des = multipleTextOutput(this.props.js, 'description', 'p', 'second_ul');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                des
-            );
-        }
-    }]);
-
-    return JsDes;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var JsList = function (_React$Component22) {
-    _inherits(JsList, _React$Component22);
-
-    function JsList() {
-        _classCallCheck(this, JsList);
-
-        return _possibleConstructorReturn(this, (JsList.__proto__ || Object.getPrototypeOf(JsList)).apply(this, arguments));
-    }
-
-    _createClass(JsList, [{
-        key: 'render',
-        value: function render() {
-            var list = multipleTextOutput(this.props.js, 'list', 'li');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'ul',
-                { className: 'second_ul' },
-                list
-            );
-        }
-    }]);
-
-    return JsList;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Js = function (_React$Component23) {
-    _inherits(Js, _React$Component23);
-
-    function Js() {
-        _classCallCheck(this, Js);
-
-        return _possibleConstructorReturn(this, (Js.__proto__ || Object.getPrototypeOf(Js)).apply(this, arguments));
-    }
-
-    _createClass(Js, [{
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'target_border2' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'target_dote2' },
-                        ' '
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(JsName, { js: this.props.js }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(JsDes, { js: this.props.js }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(JsList, { js: this.props.js })
-            );
-        }
-    }]);
-
-    return Js;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var Frameworks = function (_React$Component24) {
-    _inherits(Frameworks, _React$Component24);
-
-    function Frameworks() {
-        _classCallCheck(this, Frameworks);
-
-        return _possibleConstructorReturn(this, (Frameworks.__proto__ || Object.getPrototypeOf(Frameworks)).apply(this, arguments));
-    }
-
-    _createClass(Frameworks, [{
-        key: 'render',
-        value: function render() {
-            var title = singleTextOutput(this.props.frameworks, 'title'),
-                des = multipleTextOutput(this.props.frameworks, 'description', 'li');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { id: 'frameworks' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { className: 'frameworks' },
+                    'h1',
+                    { id: 'wellCome' },
                     title
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'target_border3' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'target_dote3' })
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'ul',
-                    { className: 'frameworksDes' },
-                    des
                 )
             );
         }
     }]);
 
-    return Frameworks;
+    return WellCome;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var LearningExperience = function (_React$Component25) {
-    _inherits(LearningExperience, _React$Component25);
+var Icon = function (_React$Component4) {
+    _inherits(Icon, _React$Component4);
 
-    function LearningExperience() {
-        _classCallCheck(this, LearningExperience);
+    function Icon(props) {
+        _classCallCheck(this, Icon);
 
-        return _possibleConstructorReturn(this, (LearningExperience.__proto__ || Object.getPrototypeOf(LearningExperience)).apply(this, arguments));
+        var _this4 = _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
+
+        _this4.handleClick = _this4.handleClick.bind(_this4);
+        _this4.state = { isHidden: true };
+        return _this4;
     }
 
-    _createClass(LearningExperience, [{
-        key: 'render',
-        value: function render() {
-            var title = singleTextOutput(this.props.learningExperience, 'title'),
-                learningTime1 = singleTextOutput(this.props.learningExperience, 'time1'),
-                learningDes1 = multipleTextOutput(this.props.learningExperience, 'description1', 'li'),
-                learningTime2 = singleTextOutput(this.props.learningExperience, 'time2'),
-                learningDes2 = multipleTextOutput(this.props.learningExperience, 'description2', 'li'),
-                rows = [];
-            this.props.learningExperience.forEach(function (item, index) {
-                if (item.homework) {
-                    return rows.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { id: 'hm_name', key: index },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            { id: 'des' },
-                            '\u7F51\u6613\u4E91\u8BFE\u5802\u4F5C\u4E1A'
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { id: 'hm_wrap' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'a',
-                                { id: 'hm_url', href: item.url },
-                                item.homework
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'p',
-                                { id: 'hm_des', key: index },
-                                item.description
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { id: 'hm_type' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'hm_dot', style: { backgroundColor: item.light } }),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'p',
-                                    { id: 'hm_last', key: index },
-                                    item.type
-                                )
-                            )
-                        )
-                    ));
-                }
+    _createClass(Icon, [{
+        key: 'handleClick',
+        value: function handleClick() {
+            this.setState(function (prevState) {
+                return {
+                    isHidden: !prevState.isHidden
+                };
             });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { id: 'learningExperience' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h2',
-                    { id: 'learningTitle' },
-                    title
-                ),
+                { className: 'bigWrap' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'target_border4' },
+                    { id: 'iconWrap' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'target_dote4' },
-                        ' '
-                    )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'ul',
-                    { className: 'leaningExperience' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { className: 'mooc' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            { id: 'time1' },
-                            learningTime1
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'ul',
-                            { className: 'learningDes1' },
-                            learningDes1
-                        )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { className: 'netEasy' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            { id: 'time2' },
-                            learningTime2
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'ul',
-                            { className: 'learningDes2' },
-                            learningDes2
-                        )
-                    ),
-                    rows
-                )
-            );
-        }
-    }]);
-
-    return LearningExperience;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var ProjectTitle = function (_React$Component26) {
-    _inherits(ProjectTitle, _React$Component26);
-
-    function ProjectTitle() {
-        _classCallCheck(this, ProjectTitle);
-
-        return _possibleConstructorReturn(this, (ProjectTitle.__proto__ || Object.getPrototypeOf(ProjectTitle)).apply(this, arguments));
-    }
-
-    _createClass(ProjectTitle, [{
-        key: 'render',
-        value: function render() {
-            var title = singleTextOutput(this.props.project, 'title');
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h2',
-                { className: 'last_title' },
-                title
-            );
-        }
-    }]);
-
-    return ProjectTitle;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-var ProjectList = function (_React$Component27) {
-    _inherits(ProjectList, _React$Component27);
-
-    function ProjectList() {
-        _classCallCheck(this, ProjectList);
-
-        return _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).apply(this, arguments));
-    }
-
-    _createClass(ProjectList, [{
-        key: 'render',
-        value: function render() {
-            var rows = [];
-            this.props.project.forEach(function (item, index) {
-                if (item.list) {
-                    rows.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { className: 'pro', key: index },
+                        { id: 'icon1' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'a',
-                            { href: item.url },
-                            item.list
-                        ),
+                            { href: 'https://github.com/citylcs' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-github icon-large' })
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { id: 'icon2' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'icon-envelope icon-large', onClick: this.handleClick })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: this.state.isHidden ? 'hidden' : 'hidden unHidden' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'hiddenWrap' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'p',
-                            { className: 'pro_des', key: index },
-                            item.description
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'li_type' },
+                            'h3',
+                            null,
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'dot', style: { backgroundColor: item.light } },
-                                ' '
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'p',
-                                { key: index },
-                                item.type
+                                'a',
+                                { href: 'mailto:citylcs@gmail.com' },
+                                'citylcs@gmail.com'
                             )
                         )
-                    ));
-                }
-            });
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'ul',
-                { className: 'third_ul' },
-                rows
+                    )
+                )
             );
         }
     }]);
 
-    return ProjectList;
+    return Icon;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var Project = function (_React$Component28) {
-    _inherits(Project, _React$Component28);
+var ITEMS = [{ wellCome: '你好，我是林楚城！' }, { imgSrc: 'img/icon.png' }];
 
-    function Project() {
-        _classCallCheck(this, Project);
+var Me = function (_React$Component5) {
+    _inherits(Me, _React$Component5);
 
-        return _possibleConstructorReturn(this, (Project.__proto__ || Object.getPrototypeOf(Project)).apply(this, arguments));
+    function Me() {
+        _classCallCheck(this, Me);
+
+        return _possibleConstructorReturn(this, (Me.__proto__ || Object.getPrototypeOf(Me)).apply(this, arguments));
     }
 
-    _createClass(Project, [{
+    _createClass(Me, [{
         key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ProjectTitle, { project: this.props.project }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(TopBar, null),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'target_border5' },
+                    { id: 'midContent' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'target_dote5' },
-                        ' '
+                        __WEBPACK_IMPORTED_MODULE_2_rc_queue_anim___default.a,
+                        { duration: 2000, delay: 1000, animConfig: [{ opacity: [1, 0], translateY: [0, 50] }, { opacity: [1, 0], translateY: [0, -50] }] },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { key: '1' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Photo, { items: this.props.items })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { key: '2' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(WellCome, { items: this.props.items })
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { key: '3' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Icon, null)
+                        )
                     )
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ProjectList, { project: this.props.project })
+                )
             );
         }
     }]);
 
-    return Project;
+    return Me;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var ITEMS = [{ overTitle: 'Overview' }, { downloadName: 'Download resume' }, { downloadUrl: '../pdf/kelvin.pdf' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
-var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Sep 2016 - Dec 2016' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
-
-var SKILLOVER = [{ title: 'Skills Overview' }, { name: 'HTML(5)' }, { name: 'CSS(3)' }, { name: 'JavaScript' }, { name: 'DOM' }, { name: 'W3C标准' }, { name: 'ES6' }, { name: '语义化' }, { name: '响应式布局' }, { name: 'Git' }, { name: 'Ajax' }, { name: 'JQuery' }, { name: 'React' }, { name: 'bootstrap' }, { name: 'SASS' }, { name: 'Gulp' }, { name: 'Webpack' }];
-
-var HTML1 = [{ htmlTitle: 'Skills' }, { htmlName: 'HTML' }, { description: 'HTML5' }, { htmlList: '熟悉HTML标签的基本属性和使用方法' }, { htmlList: '熟悉W3C标准，能按要求写出简洁无误的代码' }, { htmlList: '了解HTML5 video、canvas等新标签的属性以及使用方法' }];
-
-var CSS = [{ name: 'CSS' }, { description: 'CSS3' }, { description: 'transform' }, { list: '熟练使用css，擅长div + css的布局，能够写出兼容常见浏览器的代码' }, { list: '熟悉盒模型，以及各类布局的使用方法' }, { list: '熟悉css3新增属性的使用，border-radius、transform、animation等' }, { list: '熟练使用响应式布局适配各设备的屏幕尺寸' }, { list: '熟练使用SASS预处理器' }];
-
-var JS = [{ name: 'JavaScript' }, { description: 'ES6' }, { description: 'DOM' }, { list: 'JavaScript基础牢固，熟悉DOM、event、ajax，能够编写出基本的JavaScript原生代码' }, { list: '熟悉ES6语法，个人项目中已全面使用ES6进行开发' }, { list: '熟练使用chrome developer tools调试工具来调试代码' }, { list: '熟练使用intellij idea、Sublime Text3等编辑器进行前端页面手工式的开发' }, { list: '熟练使用Google、Stack Overflow等网站解决问题' }];
-
-var FRAMEWORKS = [{ title: 'Frameworks & Tools' }, { description: '熟悉jQuery api，能够编写出最基本的动态交互效果，并擅长用其封装日常的开发组件' }, { description: '熟悉React、underscore等框架，对前端组件化有深入了解' }, { description: '熟悉bootstrap、animation.css等css框架的使用' }, { description: '熟练使用Git版本控制工具' }, { description: '熟练使用Gulp、webpack等前端自动化构建工具' }];
-
-var LEARNING = [{ title: 'Learning Experience' }, { time1: 'Aug 2016 - Oct 2016 慕课网' }, { time2: 'Oct 2016 - Dec 2016 网易云课堂' }, { description1: 'HTML + CSS基础课程' }, { description1: 'CSS网页布局' }, { description1: '网页简单布局之结构与表现原则' }, { description1: '导航条菜单制作' }, { description1: 'JavaScript 入门 + 进阶' }, { description1: 'DOM事件' }, { description1: 'JQuery样式' }, { description1: 'JQuery DOM' }, { description2: '页面制作 HTML + CSS + 开发调试工具' }, { description2: 'JavaScript 基础篇 + 进阶篇' }, { description2: 'DOM编程艺术' }, { description2: '页面架构' }, { description2: '产品前端架构' }, {
-    homework: 'netEasyFrontEndHomework',
-    description: '网易云课堂前端微专业作业及考试',
-    type: 'HTML',
-    light: '#e34c26',
-    url: 'https://github.com/citylcs/netEasyFrontEndHomework'
-}];
-
-var PROJECT = [{ title: 'Project' }, {
-    list: 'Victor-series-page',
-    description: '网络加速服务类主页',
-    type: 'HTML',
-    light: '#e34c26',
-    url: 'https://github.com/citylcs/Victor-series-page'
-}, {
-    list: 'toDoList',
-    description: '原生JavaScript开发的todolist应用',
-    type: 'JavaScript',
-    light: '#f1e054',
-    url: 'https://github.com/citylcs/toDoList'
-}, {
-    list: 'Calculation',
-    description: '一个简单的、原生JavaScript制作的计算器',
-    type: 'CSS',
-    light: '#563d7c',
-    url: 'https://github.com/citylcs/Calculation'
-}, {
-    list: 'React Demo',
-    description: 'React.js框架下开发的带过滤功能的todolist应用',
-    type: 'JavaScript',
-    light: '#f1e054',
-    url: 'https://github.com/citylcs/React-TODO'
-}, {
-    list: 'resume',
-    description: 'React + SASS + Gulp + Webpack开发的个人简历',
-    type: 'JavaScript',
-    light: '#f1e054',
-    url: 'https://github.com/citylcs/resume'
-}];
-
-function Resume() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(TopBar, null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'midContent' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_2_rc_queue_anim___default.a,
-                { duration: 3000, delay: 1500, animConfig: [{ opacity: [1, 0], translateY: [0, 50] }, { opacity: [1, 0], translateY: [0, -50] }] },
-                [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '1' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Overview, { items: ITEMS })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '2' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Experience, { exp: EXP })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '3' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(SkillOverview, { skillOver: SKILLOVER })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '4' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(HTML, { html: HTML1 })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '5' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Css, { css: CSS })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '6' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Js, { js: JS })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '7' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Frameworks, { frameworks: FRAMEWORKS })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '8' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(LearningExperience, { learningExperience: LEARNING })
-                ), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: '9' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Project, { project: PROJECT })
-                )]
-            )
-        )
-    );
-}
-
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Resume, null), document.getElementById('app'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Me, { items: ITEMS }), document.getElementById('container'));
 
 /***/ }),
 /* 140 */

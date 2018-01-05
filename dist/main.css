@@ -1,14 +1,28 @@
 @font-face {
-  font-family: "SS Pro";
-  src: url("../fonts/SourceSansPro-Regular.ttf");
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  src: url('../fonts/PingFang Regular.ttf');
+  unicode-range: U+4E00-9FFF;
 }
 
 @font-face {
-  font-family: "PingFang SC";
-  src: url("../fonts/PingFang Regular.ttf");
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/regular.woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'SF Pro Display Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/bold.woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
 }
 
 body {
+  font-family: "SF Pro Display", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -17,17 +31,69 @@ html {
   background-color: #b8335c;
 }
 
-a:visited, a:link, a:active {
+a{
   color: #fff;
-}
-
-a {
   text-decoration: none;
 }
 
 .menu {
+  width: 100%;
   height: 67px;
-  background-color: #c63c67;
+  background: #c93c67;
+  position: relative;
+}
+
+.menu a {
+  height: 43px;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 0 18px;
+}
+
+.menu a:visited {
+  color: #fff;
+}
+
+.menu a:hover {
+  background-color: #b8335c;
+  border-radius: 5px;
+}
+
+.menu li {
+  font-family: "SF Pro Display Bold", sans-serif;
+  float: left;
+  margin-left: 38px;
+  list-style: none;
+  line-height: 43px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.menu li:last-child {
+  margin-right: 60px;
+}
+
+.menu li:first-child a {
+  background-color: #b8335c;
+  border-radius: 5px;
+}
+
+.menu li:first-child:hover {
+  color: #21b080;
+}
+
+.menu .menu_content {
+  margin: 0;
+  border: none;
+}
+
+.menu_content{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 .menu i {
@@ -48,34 +114,6 @@ a {
   transform: rotate(180deg);
 }
 
-.menu_content {
-  float: right;
-  margin: 0;
-}
-
-.menu_content li {
-  float: left;
-  list-style: none;
-  font-size: 20px;
-  line-height: 67px;
-  font-family: "SS Pro",sans-serif;
-  font-weight: 800;
-  cursor: pointer;
-  margin-right: 30px;
-}
-
-.menu_content li:first-child {
-  color: #21b080;
-}
-
-.menu_content a:hover {
-  color: #21b080;
-}
-
-.menu_content a {
-  cursor: pointer;
-}
-
 #photoWrap {
   width: 230px;
   margin: 80px auto 0 auto;
@@ -91,7 +129,7 @@ a {
   position: relative;
   top: 0;
   text-align: center;
-  font: 25px 'PingFang SC';
+  font-size: 25px;
   color: #fff;
 }
 
@@ -147,17 +185,28 @@ a {
     transition: height 500ms;
   }
   .menu .menu_content {
-    width: 100%;
+    align-items: center;
+    position: absolute;
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding: 0;
+    transform: none;
     height: 0;
     overflow: hidden;
     transition: height 500ms;
   }
   .menu .menu_content li {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .menu_content a {
+    display: inline-block;
   }
   .menu .open {
     height: 134px;
@@ -166,7 +215,7 @@ a {
     display: block;
   }
   .show {
-    height: 134px;
+    height: 160px;
   }
   #wellCome {
     font-size: 35px;
