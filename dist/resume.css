@@ -283,6 +283,7 @@ p {
 
 .third_ul li a {
   text-decoration: none;
+  color: #0366d6;
 }
 
 .third_ul li a:hover {
