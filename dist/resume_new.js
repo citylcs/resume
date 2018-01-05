@@ -12543,7 +12543,11 @@ var TopBar = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         null,
-                        'Resume'
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: 'resume.html' },
+                            'Resume'
+                        )
                     )
                 ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'ul',
@@ -12560,7 +12564,11 @@ var TopBar = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'li',
                         null,
-                        'Resume'
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'a',
+                            { href: 'resume.html' },
+                            'Resume'
+                        )
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -13440,7 +13448,7 @@ var Project = function (_React$Component28) {
     return Project;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-var ITEMS = [{ overTitle: 'Overview' }, { downloadName: 'Download resume' }, { downloadUrl: 'pdf/kelvin.pdf' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
+var ITEMS = [{ overTitle: 'Overview' }, { downloadName: 'Download resume' }, { downloadUrl: '../pdf/kelvin.pdf' }, { overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。' }];
 var EXP = [{ ExpTitle: 'Experience' }, { ExpCompanyName: '北京拓思德科技有限公司' }, { description: '坐标测量员(软件测试)' }, { description: 'Sep 2016 - Dec 2016' }, { expList: '负责该公司研发的一款电子教育笔以及与苹果公司合作的Apple Pencil的坐标测量，精确定位图像出现在区域内相应位置' }, { expList: '负责该公司产品的包装和市场宣传' }];
 
 var SKILLOVER = [{ title: 'Skills Overview' }, { name: 'HTML(5)' }, { name: 'CSS(3)' }, { name: 'JavaScript' }, { name: 'DOM' }, { name: 'W3C标准' }, { name: 'ES6' }, { name: '语义化' }, { name: '响应式布局' }, { name: 'Git' }, { name: 'Ajax' }, { name: 'JQuery' }, { name: 'React' }, { name: 'bootstrap' }, { name: 'SASS' }, { name: 'Gulp' }, { name: 'Webpack' }];

@@ -51,11 +51,11 @@ class TopBar extends React.Component {
                     this.state.isHidden ?
                         <ul className="menu_content open">
                             <li><a href="index.html">Me</a></li>
-                            <li>Resume</li>
+                            <li><a href="resume.html">Resume</a></li>
                         </ul> :
                         <ul className="menu_content">
                             <li><a href="index.html">Me</a></li>
-                            <li>Resume</li>
+                            <li><a href="resume.html">Resume</a></li>
                         </ul>
                 }
                 <div onClick={this.handleClick}>
@@ -408,7 +408,7 @@ class Project extends React.Component {
 const ITEMS = [
     {overTitle: 'Overview'},
     {downloadName: 'Download resume'},
-    {downloadUrl: 'pdf/kelvin.pdf'},
+    {downloadUrl: '../pdf/kelvin.pdf'},
     {overContent: '早已不是web前端 ≈ Word document的时代，我被其吸引，同时抱着对后端的兴趣选择前端。爱捣鼓技术、喜欢新鲜事物，接触新鲜事物会保持激动兴奋状态。有着能为了搭建shadowsocks花掉一整天的时间对技术的热爱，更有为服务端的性能提升废寝忘食的执着。有着独立思考以及解决问题的能力，更有遇到问题不急躁的耐心。这就是我，这样的我喜爱着前端。'},
 ];
 const EXP = [

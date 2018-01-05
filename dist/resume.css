@@ -1,60 +1,100 @@
 @font-face {
-  font-family: "SS Pro";
-  src: url("../fonts/SourceSansPro-Regular.ttf");
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  src: url('../fonts/PingFang Regular.ttf');
+  unicode-range: U+4E00-9FFF;
 }
 
 @font-face {
-  font-family: "PingFang SC";
-  src: url("../fonts/PingFang Regular.ttf");
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(http://fonts.gstatic.com/s/sourcesanspro/v11/ODelI1aHBYDBqgeIAH2zlJbPFduIYtoLzwST68uhz_Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
 }
+
+@font-face {
+  font-family: 'SF Pro Display Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://fonts.gstatic.com/s/sourcesanspro/v11/toadOcfmlt9b38dHJxOBGJkF8H8ye47wsfpWywda8og.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+}
+/*@font-face {*/
+  /*font-family: "SS Pro";*/
+  /*src: url("../fonts/SourceSansPro-Regular.ttf");*/
+/*}*/
+
+/*@font-face {*/
+  /*font-family: "PingFang SC";*/
+  /*src: url("../fonts/PingFang Regular.ttf");*/
+/*}*/
+
+/*@font-face {*/
+  /*font-family: 'custom-sans-serif';*/
+  /*font-weight: 700;*/
+  /*src: local("../fonts/SourceSansPro-Regular.ttf");*/
+  /*unicode-range: U+4E00-9FFF;*/
+/*}*/
+
+
 
 .menu li, h2 {
   font-size: 40px;
-  font-family: "SS Pro", sans-serif;
+  /*font-family: "SS Pro", sans-serif;*/
 }
 
 p {
   font-size: 16px;
-  font-family: "PingFang SC", sans-serif;
+  /*font-family: "PingFang SC", sans-serif;*/
 }
 
 body {
   padding: 0;
   margin: 0;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 .menu {
   width: 100%;
   height: 67px;
   background: #c93c67;
+  position: relative;
 }
 
 .menu a {
+  display: block;
   text-decoration: none;
   color: #fff;
+  padding: 0 18px;
 }
 
 .menu a:visited {
   color: #fff;
 }
 
-.menu a:hover {
-  color: #21b080;
-}
-
 .menu li {
+  height: 43px;
+  font-family: "SF Pro Display Bold", sans-serif;
   float: left;
-  margin-left: 60px;
+  margin-left: 38px;
   list-style: none;
-  line-height: 67px;
+  line-height: 43px;
   font-size: 20px;
   font-weight: 700;
   color: #fff;
 }
 
+.menu li:hover {
+  background-color: #b8335c;
+  border-radius: 5px;
+}
+
 .menu li:last-child {
   margin-right: 60px;
   color: #21b080;
+  background-color: #b8335c;
+  border-radius: 5px;
 }
 
 .menu li:first-child:hover {
@@ -62,9 +102,15 @@ body {
 }
 
 .menu .menu_content {
-  float: right;
   margin: 0;
   border: none;
+}
+
+.menu_content{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 .menu i {
@@ -88,6 +134,7 @@ body {
 .download_button {
   width: 200px;
   height: 45px;
+  font-family: "SF Pro Display Bold", sans-serif;
   font-size: 20px;
   text-decoration: none;
   line-height: 45px;
@@ -101,6 +148,10 @@ body {
   position: absolute;
   top: 20px;
   right: 40px;
+}
+
+.download_button:active {
+  background-color: #b8335c;
 }
 
 .overview_content {
@@ -129,6 +180,7 @@ p {
 }
 
 h2 {
+  font-family: "SF Pro Display Bold", sans-serif;
   margin-top: 40px;
   margin-bottom: 0;
   padding: 20px;
@@ -151,11 +203,11 @@ h3 {
 
 p, h3 {
   padding-left: 35px;
-  font-family: "PingFang SC", sans-serif;
+  /*font-family: "PingFang SC", sans-serif;*/
 }
 
 li{
-  font-family: "PingFang SC", sans-serif;
+  /*font-family: "PingFang SC", sans-serif;*/
 }
 
 ul {
@@ -247,7 +299,7 @@ p {
   list-style: none;
   border-radius: 3px;
   color: #0366d6;
-  font-family: "SS Pro", sans-serif;
+  /*font-family: "SS Pro", sans-serif;*/
   padding: 16px;
   position: relative;
   margin: 0 0 16px 0;
@@ -340,7 +392,6 @@ p {
 }
 
 span {
-  font-family: "PingFang SC", sans-serif;
   font-weight: 800;
   padding: 10px;
   margin: 5px;
@@ -408,7 +459,7 @@ span {
 
 #hm_url{
   font-size: 14px;
-  font-family: "SS Pro", sans-serif;
+  /*font-family: "SS Pro", sans-serif;*/
   color: #0366d6;
   text-decoration: none;
 }
