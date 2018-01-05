@@ -12463,7 +12463,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 function singleTextOutput(arr, key) {
-    //输出单个文本组件
+    //输出单个文本内容组件
     return arr.map(function (item) {
         if (item[key]) {
             return item[key];
@@ -12471,41 +12471,29 @@ function singleTextOutput(arr, key) {
     });
 }
 
-function multipleTextOutputWithP(arr, key, class_name) {
-    //输出多个p标签组件
+function multipleTextOutput(arr, key, tags, class_name) {
+    //输出多个可选标签的文本内容组件
     return arr.map(function (item, index) {
         if (item[key]) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'p',
-                { key: index, className: class_name },
-                item[key]
-            );
-        }
-    });
-}
-
-function multipleTextOutputWithLi(arr, key, class_name) {
-    //输出多个li标签组件
-    return arr.map(function (item, index) {
-        if (item[key]) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'li',
-                { key: index, className: class_name },
-                item[key]
-            );
-        }
-    });
-}
-
-function multipleTextOutputWithSpan(arr, key) {
-    //输出多个span标签组件，无className
-    return arr.map(function (item, index) {
-        if (item[key]) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'span',
-                { key: index },
-                item[key]
-            );
+            if (tags === 'p') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else if (tags === 'li') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else if (tags === 'span') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else {}
         }
     });
 }
@@ -12744,7 +12732,7 @@ var Description = function (_React$Component7) {
     _createClass(Description, [{
         key: 'render',
         value: function render() {
-            var des = multipleTextOutputWithP(this.props.exp, 'description');
+            var des = multipleTextOutput(this.props.exp, 'description', 'p');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -12768,7 +12756,7 @@ var ExpList = function (_React$Component8) {
     _createClass(ExpList, [{
         key: 'render',
         value: function render() {
-            var list = multipleTextOutputWithLi(this.props.exp, 'expList');
+            var list = multipleTextOutput(this.props.exp, 'expList', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 null,
@@ -12819,7 +12807,7 @@ var SkillOverview = function (_React$Component10) {
     _createClass(SkillOverview, [{
         key: 'render',
         value: function render() {
-            var skillOver = multipleTextOutputWithSpan(this.props.skillOver, 'name'),
+            var skillOver = multipleTextOutput(this.props.skillOver, 'name', 'span'),
                 skillOverTitle = singleTextOutput(this.props.skillOver, 'title');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -12929,7 +12917,7 @@ var HTMLList = function (_React$Component14) {
     _createClass(HTMLList, [{
         key: 'render',
         value: function render() {
-            var list = multipleTextOutputWithLi(this.props.html, 'htmlList');
+            var list = multipleTextOutput(this.props.html, 'htmlList', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13012,7 +13000,7 @@ var CssDes = function (_React$Component17) {
     _createClass(CssDes, [{
         key: 'render',
         value: function render() {
-            var des = multipleTextOutputWithP(this.props.css, 'description', 'second_ul');
+            var des = multipleTextOutput(this.props.css, 'description', 'p', 'second_ul');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -13036,7 +13024,7 @@ var CssList = function (_React$Component18) {
     _createClass(CssList, [{
         key: 'render',
         value: function render() {
-            var list = multipleTextOutputWithLi(this.props.css, 'list');
+            var list = multipleTextOutput(this.props.css, 'list', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13118,7 +13106,7 @@ var JsDes = function (_React$Component21) {
     _createClass(JsDes, [{
         key: 'render',
         value: function render() {
-            var des = multipleTextOutputWithP(this.props.js, 'description', 'second_ul');
+            var des = multipleTextOutput(this.props.js, 'description', 'p', 'second_ul');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -13142,7 +13130,7 @@ var JsList = function (_React$Component22) {
     _createClass(JsList, [{
         key: 'render',
         value: function render() {
-            var list = multipleTextOutputWithLi(this.props.js, 'list');
+            var list = multipleTextOutput(this.props.js, 'list', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'ul',
                 { className: 'second_ul' },
@@ -13201,7 +13189,7 @@ var Frameworks = function (_React$Component24) {
         key: 'render',
         value: function render() {
             var title = singleTextOutput(this.props.frameworks, 'title'),
-                des = multipleTextOutputWithLi(this.props.frameworks, 'description');
+                des = multipleTextOutput(this.props.frameworks, 'description', 'li');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'frameworks' },
@@ -13241,9 +13229,9 @@ var LearningExperience = function (_React$Component25) {
         value: function render() {
             var title = singleTextOutput(this.props.learningExperience, 'title'),
                 learningTime1 = singleTextOutput(this.props.learningExperience, 'time1'),
-                learningDes1 = multipleTextOutputWithLi(this.props.learningExperience, 'description1'),
+                learningDes1 = multipleTextOutput(this.props.learningExperience, 'description1', 'li'),
                 learningTime2 = singleTextOutput(this.props.learningExperience, 'time2'),
-                learningDes2 = multipleTextOutputWithLi(this.props.learningExperience, 'description2'),
+                learningDes2 = multipleTextOutput(this.props.learningExperience, 'description2', 'li'),
                 rows = [];
             this.props.learningExperience.forEach(function (item, index) {
                 if (item.homework) {

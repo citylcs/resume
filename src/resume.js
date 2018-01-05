@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import QueueAnim from 'rc-queue-anim'
 
 
-function singleTextOutput(arr, key) {//输出单个文本组件
+function singleTextOutput(arr, key) {//输出单个文本内容组件
     return arr.map((item) => {
         if (item[key]) {
             return item[key];
@@ -11,26 +11,19 @@ function singleTextOutput(arr, key) {//输出单个文本组件
     });
 }
 
-function multipleTextOutputWithP(arr, key, class_name) {//输出多个p标签组件
+function multipleTextOutput(arr, key, tags, class_name) {//输出多个可选标签的文本内容组件
     return arr.map((item, index) => {
         if (item[key]) {
-            return <p key={index} className={class_name}>{item[key]}</p>
-        }
-    });
-}
-
-function multipleTextOutputWithLi(arr, key, class_name) {//输出多个li标签组件
-    return arr.map((item, index) => {
-        if (item[key]) {
-            return <li key={index} className={class_name}>{item[key]}</li>
-        }
-    });
-}
-
-function multipleTextOutputWithSpan(arr, key) {//输出多个span标签组件，无className
-    return arr.map((item, index) => {
-        if (item[key]) {
-            return <span key={index}>{item[key]}</span>
+            if (tags === 'p') {
+                return <p key={index} className={class_name}>{item[key]}</p>
+            }
+            else if (tags === 'li') {
+                return <li key={index} className={class_name}>{item[key]}</li>
+            }
+            else if (tags === 'span') {
+                return <span key={index} className={class_name}>{item[key]}</span>
+            }
+            else{}
         }
     });
 }
@@ -136,14 +129,14 @@ function Target() {//侧边栏圆点
 
 class Description extends React.Component {
     render() {
-        let des = multipleTextOutputWithP(this.props.exp, 'description');
+        let des = multipleTextOutput(this.props.exp, 'description', 'p');
         return <div>{des}</div>
     }
 }
 
 class ExpList extends React.Component {
     render() {
-        let list = multipleTextOutputWithLi(this.props.exp, 'expList');
+        let list = multipleTextOutput(this.props.exp, 'expList', 'li');
         return <ul>{list}</ul>
     }
 }
@@ -164,7 +157,7 @@ class Experience extends React.Component {
 
 class SkillOverview extends React.Component {
     render() {
-        let skillOver = multipleTextOutputWithSpan(this.props.skillOver, 'name'),
+        let skillOver = multipleTextOutput(this.props.skillOver, 'name', 'span'),
             skillOverTitle = singleTextOutput(this.props.skillOver, 'title');
         return (
             <div id="skillOver">
@@ -208,7 +201,7 @@ class HTMLDes extends React.Component {
 
 class HTMLList extends React.Component {
     render() {
-        let list = multipleTextOutputWithLi(this.props.html, 'htmlList');
+        let list = multipleTextOutput(this.props.html, 'htmlList', 'li');
         return (
             <ul className="second_ul">{list}</ul>
         )
@@ -240,14 +233,14 @@ class CssName extends React.Component {
 
 class CssDes extends React.Component {
     render() {
-        let des = multipleTextOutputWithP(this.props.css, 'description', 'second_ul');
+        let des = multipleTextOutput(this.props.css, 'description', 'p', 'second_ul');
         return <div>{des}</div>
     }
 }
 
 class CssList extends React.Component {
     render() {
-        let list = multipleTextOutputWithLi(this.props.css, 'list');
+        let list = multipleTextOutput(this.props.css, 'list', 'li');
         return <ul className="second_ul">{list}</ul>
     }
 }
@@ -276,14 +269,14 @@ class JsName extends React.Component {
 
 class JsDes extends React.Component {
     render() {
-        let des = multipleTextOutputWithP(this.props.js, 'description', 'second_ul');
+        let des = multipleTextOutput(this.props.js, 'description', 'p', 'second_ul');
         return <div>{des}</div>
     }
 }
 
 class JsList extends React.Component {
     render() {
-        let list = multipleTextOutputWithLi(this.props.js, 'list');
+        let list = multipleTextOutput(this.props.js, 'list', 'li');
         return <ul className="second_ul">{list}</ul>
     }
 }
@@ -306,7 +299,7 @@ class Js extends React.Component {
 class Frameworks extends React.Component {
     render() {
         let title = singleTextOutput(this.props.frameworks, 'title'),
-            des = multipleTextOutputWithLi(this.props.frameworks, 'description');
+            des = multipleTextOutput(this.props.frameworks, 'description', 'li');
         return(
             <div id="frameworks">
                 <h2 className="frameworks">{title}</h2>
@@ -325,9 +318,9 @@ class LearningExperience extends React.Component {
     render() {
         let title = singleTextOutput(this.props.learningExperience, 'title'),
             learningTime1 = singleTextOutput(this.props.learningExperience, 'time1'),
-            learningDes1 = multipleTextOutputWithLi(this.props.learningExperience, 'description1'),
+            learningDes1 = multipleTextOutput(this.props.learningExperience, 'description1', 'li'),
             learningTime2 = singleTextOutput(this.props.learningExperience, 'time2'),
-            learningDes2 = multipleTextOutputWithLi(this.props.learningExperience, 'description2'),
+            learningDes2 = multipleTextOutput(this.props.learningExperience, 'description2', 'li'),
             rows = [];
         this.props.learningExperience.forEach((item, index) => {
             if (item.homework) {

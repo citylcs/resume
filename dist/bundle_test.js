@@ -9765,15 +9765,29 @@ function arrayMap(arr, key) {
     });
 }
 
-function multipleTextOutputWithP(arr, key, class_name) {
+function multipleTextOutput(arr, key, tags, class_name) {
     //输出多个p标签组件
     return arr.map(function (item, index) {
         if (item[key]) {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'p',
-                { key: index, className: class_name },
-                item[key]
-            );
+            if (tags === 'p') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else if (tags === 'li') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else if (tags === 'span') {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'span',
+                    { key: index, className: class_name },
+                    item[key]
+                );
+            } else {}
         }
     });
 }
@@ -9791,7 +9805,7 @@ var Main = function (_React$Component) {
         key: 'render',
         value: function render() {
             var fuck = arrayMap(this.props.fake, 'description');
-            var fuck2 = multipleTextOutputWithP(this.props.fake, 'name', 'delebani');
+            var fuck2 = multipleTextOutput(this.props.fake, 'name', 'span', 'fuckMe');
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
