@@ -12595,7 +12595,7 @@ var Photo = function (_React$Component2) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { id: 'photoWrap' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/icon.png', id: 'photo' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'img/kelvin.jpg', id: 'photo' })
             );
         }
     }]);

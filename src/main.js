@@ -66,7 +66,7 @@ class Photo extends React.Component {
     render() {
         return (
             <div id="photoWrap">
-                <img src="img/icon.png" id="photo" />
+                <img src="img/kelvin.jpg" id="photo" />
             </div>
         )
     }
