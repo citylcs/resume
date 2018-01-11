@@ -10,16 +10,18 @@ function contentOutput(arr, key, tags, class_name) {//输出数组内容组件
                 return item[key];
             }
             else {//输出多个可选标签内容
-                if (tags === 'p') {
-                    return <p key={index} className={class_name}>{item[key]}</p>
+                switch (tags) {
+                    case 'p':
+                        return <p key={index} className={class_name}>{item[key]}</p>;
+                        break;
+                    case 'li':
+                        return <li key={index} className={class_name}>{item[key]}</li>;
+                        break;
+                    case 'span':
+                        return <span key={index} className={class_name}>{item[key]}</span>;
+                        break;
+                    default:{}
                 }
-                else if (tags === 'li') {
-                    return <li key={index} className={class_name}>{item[key]}</li>
-                }
-                else if (tags === 'span') {
-                    return <span key={index} className={class_name}>{item[key]}</span>
-                }
-                else{}
             }
         }
     });

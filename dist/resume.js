@@ -12471,25 +12471,31 @@ function contentOutput(arr, key, tags, class_name) {
                 return item[key];
             } else {
                 //输出多个可选标签内容
-                if (tags === 'p') {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'p',
-                        { key: index, className: class_name },
-                        item[key]
-                    );
-                } else if (tags === 'li') {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'li',
-                        { key: index, className: class_name },
-                        item[key]
-                    );
-                } else if (tags === 'span') {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'span',
-                        { key: index, className: class_name },
-                        item[key]
-                    );
-                } else {}
+                switch (tags) {
+                    case 'p':
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { key: index, className: class_name },
+                            item[key]
+                        );
+                        break;
+                    case 'li':
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'li',
+                            { key: index, className: class_name },
+                            item[key]
+                        );
+                        break;
+                    case 'span':
+                        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'span',
+                            { key: index, className: class_name },
+                            item[key]
+                        );
+                        break;
+                    default:
+                        {}
+                }
             }
         }
     });
